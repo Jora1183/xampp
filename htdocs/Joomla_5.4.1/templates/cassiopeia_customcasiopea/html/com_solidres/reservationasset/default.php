@@ -62,6 +62,7 @@ $doc->addStyleSheet(Uri::root() . 'templates/cassiopeia_customcasiopea/css/solid
     position: sticky; top: 70px; z-index: 40;
     background: white; border-bottom: 1px solid #f0f0f0;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 2rem;
   }
   .sr-anchor-nav a {
     display: inline-block; padding: 0.4rem 1rem; border-radius: 9999px;
@@ -72,7 +73,7 @@ $doc->addStyleSheet(Uri::root() . 'templates/cassiopeia_customcasiopea/css/solid
   .sr-anchor-nav a:hover { background: #5c7c3b; color: white; }
 
   /* Per-house showcase block */
-  .sr-house-block { scroll-margin-top: 130px; }
+  .sr-house-block { scroll-margin-top: 150px; }
 
   /* Amenity item */
   .sr-amenity {
@@ -145,7 +146,7 @@ $doc->addStyleSheet(Uri::root() . 'templates/cassiopeia_customcasiopea/css/solid
     </div>
 
     <!-- ====== ANCHOR NAV ====== -->
-    <?php if (!empty($this->item->roomTypes)): ?>
+    <?php if (!empty($this->item->roomTypes) && empty($this->prioritizingRoomTypeId) && $this->isFresh): ?>
     <nav class="sr-anchor-nav" style="margin: 0 -1rem;">
       <div style="max-width: 80rem; margin: 0 auto; padding: 0.6rem 1rem; display: flex; gap: 0.35rem; overflow-x: auto; -webkit-overflow-scrolling: touch;">
         <?php foreach ($this->item->roomTypes as $rt): ?>

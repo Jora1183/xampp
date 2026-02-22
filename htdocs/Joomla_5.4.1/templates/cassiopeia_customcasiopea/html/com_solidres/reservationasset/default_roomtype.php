@@ -257,6 +257,7 @@ if (!$this->disableOnlineBooking): ?>
 .sr-wizard-steps li.active .badge { background: #5c7c3b; color: white; }
 </style>
 
+<?php if (!$this->isFresh): ?>
 <ul class="sr-wizard-steps <?php echo SR_UI_GRID_CONTAINER ?> steps list-inline">
     <li data-target="#step1" class="list-inline-item active reservation-tab reservation-tab-room flex-fill text-center p-2 position-relative">
         <span class="badge bg-light text-dark">1</span>
@@ -271,7 +272,8 @@ if (!$this->disableOnlineBooking): ?>
         <?php echo Text::_('SR_STEP_CONFIRMATION') ?>
     </li>
 </ul>
-<?php endif; ?>
+<?php endif; // !isFresh ?>
+<?php endif; // !disableOnlineBooking ?>
 
 <div class="step-content">
 <div class="step-pane active" id="step1">
@@ -296,17 +298,19 @@ $roomTypeDisplayData = [
 
 if ($roomTypeCount > 0):
 
-    echo SRLayoutHelper::render('asset.form_buttons_top', [
-        'isFresh'   => $this->isFresh,
-        'isSingular' => $this->isSingular,
-    ]);
-
     $blockIndex = 0; // for alternating layout
-    $prioritizingRoomTypeName = '';
     $countNotPrioritizing = 0;
 
+    // Pre-compute name so it's available regardless of room type order in the loop
+    $prioritizingRoomTypeName = '';
     if ($this->prioritizingRoomTypeId > 0):
         $countNotPrioritizing = $roomTypeCount - 1;
+        foreach ($this->item->roomTypes as $_rt):
+            if ($_rt->id == $this->prioritizingRoomTypeId):
+                $prioritizingRoomTypeName = $_rt->name;
+                break;
+            endif;
+        endforeach;
     endif;
 
     foreach ($this->item->roomTypes as $roomType):
@@ -368,12 +372,15 @@ if ($roomTypeCount > 0):
         if ($this->prioritizingRoomTypeId == $roomType->id):
             $isPrioritizingRoomType = true;
             $rowCSSClass[] = 'prioritizing';
-            $prioritizingRoomTypeName = $roomType->name;
         endif;
 
         if ($this->prioritizingRoomTypeId > 0 && $blockIndex == 2):
-            $msg = ($countNotPrioritizing > 1) ? 'SR_PRIORITIZING_ROOMTYPE_NOTICE' : 'SR_PRIORITIZING_ROOMTYPE_NOTICE_1';
-            echo '<div class="prioritizing-roomtype-notice">' . Text::sprintf($msg, $prioritizingRoomTypeName, $countNotPrioritizing) . '</div>';
+            echo '<div class="prioritizing-roomtype-notice" style="margin:1rem 0 0.5rem;">'
+                . '<a href="' . $this->escape($rtBaseUrl) . '" '
+                . 'style="display:inline-flex;align-items:center;gap:0.4rem;color:#5c7c3b;font-size:0.9rem;font-weight:700;text-decoration:none;">'
+                . '<span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>'
+                . 'Назад ко всем вариантам'
+                . '</a></div>';
         endif;
 
         // ── Collect images ────────────────────────────────────
@@ -662,7 +669,6 @@ else: // no room types
     <?php
 endif; // roomTypeCount
 
-echo SRLayoutHelper::render('asset.form_buttons_bottom', $roomTypeDisplayData);
 ?>
 
     <input type="hidden" name="jform[raid]"      value="<?php echo $this->item->id ?>" />
@@ -682,5 +688,6 @@ echo SRLayoutHelper::render('asset.form_buttons_bottom', $roomTypeDisplayData);
 <div class="step-pane" id="step3">
     <div class="reservation-single-step-holder confirmation nodisplay"></div>
 </div>
+
 
 </div><!-- /step-content -->

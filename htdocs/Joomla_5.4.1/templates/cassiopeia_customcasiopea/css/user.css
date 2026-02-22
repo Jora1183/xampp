@@ -868,3 +868,23 @@ form.mod-login label {
         display: grid !important;
     }
 }
+
+/* ── Events carousel — mobile fix ─────────────────────────── */
+@media (max-width: 640px) {
+  .news-feed-container {
+    overflow: hidden; /* clip visual bleed outside section */
+  }
+
+  .news-carousel {
+    -webkit-overflow-scrolling: touch; /* smooth momentum on iOS */
+    scroll-padding-left: 1rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* 85vw cards: one full card + peek of next card = clear swipe affordance */
+  .news-carousel > a {
+    min-width: 85vw !important;
+    max-width: 85vw;
+  }
+}

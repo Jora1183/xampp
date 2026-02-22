@@ -35,7 +35,8 @@
       "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_solidres2.php\":*)",
       "Bash(/c/xampp/htdocs/clear_cache.php:*)",
       "Read(//c/Users/**)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(/c/xampp/php/php -l:*)"
     ]
   }
 }
