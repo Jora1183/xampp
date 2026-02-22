@@ -640,6 +640,8 @@ header .max-w-7xl>div.flex {
 nav[data-purpose="main-navigation"]>ul {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
     gap: 2rem !important;
     /* 32px gap between nav links */
     margin: 0 !important;
@@ -652,6 +654,7 @@ nav[data-purpose="main-navigation"] a {
     display: flex !important;
     align-items: center !important;
     padding: 0 1rem !important;
+    white-space: nowrap !important;
     /* Add horizontal padding for touch target */
 }
 

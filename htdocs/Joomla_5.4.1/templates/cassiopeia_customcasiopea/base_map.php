@@ -413,7 +413,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                 <!-- Additional Info -->
                 <div class="mt-12 text-center">
                     <p class="text-gray-500 mb-6">Площадь территории базы составляет более 5 гектаров живописной природы</p>
-                    <a href="<?php echo $this->baseurl; ?>/index.php/razmeshchenie" 
+                    <a href="<?php echo $this->baseurl; ?>/ru/booking-options"
                        class="inline-flex items-center gap-2 bg-resort-green hover:bg-resort-green-hover text-white px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg">
                         <span class="material-symbols-outlined">villa</span>
                         Посмотреть размещение

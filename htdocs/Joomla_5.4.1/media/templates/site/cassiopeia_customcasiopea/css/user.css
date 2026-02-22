@@ -642,6 +642,9 @@ header .max-w-7xl>div.flex {
 /* 2. Navigation Spacing & Height */
 nav[data-purpose="main-navigation"]>ul {
     display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
     gap: 2rem !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -653,6 +656,7 @@ nav[data-purpose="main-navigation"] a {
     display: flex !important;
     align-items: center !important;
     padding: 0 1rem !important;
+    white-space: nowrap !important;
 }
 
 /* 3. NEW LOGIN DROPDOWN STYLES */
