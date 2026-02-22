@@ -278,7 +278,7 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
                         <jdoc:include type="modules" name="header-right" style="none" />
                     <?php endif; ?>
 
-                    <button class="md:hidden text-gray-600 hover:text-resort-green focus:outline-none">
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-resort-green focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2"></path>
@@ -289,18 +289,35 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
         </div>
     </header>
 
-    <div class="site-grid">
-        <!-- Spacer for Fixed Header -->
-        <div class="h-20 w-full"></div>
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-menu" class="md:hidden fixed top-20 left-0 right-0 bg-white shadow-lg border-t border-gray-100 z-40 hidden">
+        <nav class="max-w-7xl mx-auto px-4 py-4">
+            <jdoc:include type="modules" name="menu" style="none" />
+        </nav>
+    </div>
+    <script>
+        (function () {
+            var btn = document.getElementById('mobile-menu-btn');
+            var menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', function () {
+                    var isOpen = !menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden', isOpen);
+                    btn.setAttribute('aria-expanded', String(!isOpen));
+                });
+            }
+        })();
+    </script>
 
+    <div>
         <?php if ($this->countModules('banner', true)): ?>
-            <div class="container-banner full-width">
+            <div>
                 <jdoc:include type="modules" name="banner" style="none" />
             </div>
         <?php endif; ?>
 
-        <!-- Title Section -->
-        <div class="bg-gray-50 py-12 border-b border-gray-200">
+        <!-- Title Section (pt-20 clears the fixed 80px header) -->
+        <div class="bg-gray-50 pt-32 pb-12 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl font-serif font-bold text-resort-dark">Карта базы</h1>
                 <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Ознакомьтесь с расположением домов, инфраструктуры и природных достопримечательностей на территории нашей базы отдыха</p>
