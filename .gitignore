@@ -16,3 +16,8 @@ node_modules/
 *.log
 apache/logs/
 tmp/
+
+# Debug screenshots (generated during testing sessions)
+debug_*.png
+debug_*.html
+karta_*.png
