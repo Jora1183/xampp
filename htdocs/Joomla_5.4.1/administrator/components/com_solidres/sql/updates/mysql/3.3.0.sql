@@ -1,0 +1,2 @@
+ALTER TABLE `#__sr_reservation_assets` ADD `deposit_enable_dynamic` tinyint(3) unsigned NOT NULL AFTER `deposit_include_extra_cost`;
+ALTER TABLE `#__sr_reservation_assets` ADD `deposit_dynamic_amounts` text NOT NULL AFTER `deposit_enable_dynamic`;

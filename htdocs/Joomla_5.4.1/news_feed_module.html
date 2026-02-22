@@ -1,0 +1,109 @@
+<!-- News Feed Module -->
+<div class="news-feed-container py-8">
+    <div class="flex justify-between items-center mb-6 px-2">
+        <h2 class="text-3xl font-serif font-bold text-resort-dark">События и Жизнь Усадьбы</h2>
+    </div>
+
+    <!-- Scroll Container -->
+    <div class="news-carousel flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide"
+        style="scrollbar-width: none; -ms-overflow-style: none;">
+
+        <!-- Event Card 1 -->
+        <a href="event_gallery_sample.html?id=1"
+            class="min-w-[300px] md:min-w-[350px] snap-center block group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="relative h-56 overflow-hidden">
+                <img src="images/gallery/1.jpg" alt="Летний фестиваль"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 left-4 bg-resort-green text-white text-xs font-bold px-3 py-1 rounded-full">
+                    15 Июля 2025
+                </div>
+            </div>
+            <div class="p-5">
+                <h3 class="text-xl font-bold text-resort-dark mb-2 group-hover:text-resort-green transition-colors">
+                    Летний музыкальный фестиваль</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">Яркие эмоции, живая музыка и незабываемая атмосфера
+                    праздника на природе.</p>
+                <div class="mt-4 flex items-center text-resort-green font-semibold text-sm">
+                    Смотреть фотоотчет <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Event Card 2 -->
+        <a href="event_gallery_sample.html?id=2"
+            class="min-w-[300px] md:min-w-[350px] snap-center block group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="relative h-56 overflow-hidden">
+                <img src="images/gallery/4.jpg" alt="Свадьба на природе"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 left-4 bg-resort-green text-white text-xs font-bold px-3 py-1 rounded-full">
+                    28 Августа 2025
+                </div>
+            </div>
+            <div class="p-5">
+                <h3 class="text-xl font-bold text-resort-dark mb-2 group-hover:text-resort-green transition-colors">
+                    Свадьба Дмитрия и Анны</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">Волшебная церемония бракосочетания в окружении вековых
+                    сосен.</p>
+                <div class="mt-4 flex items-center text-resort-green font-semibold text-sm">
+                    Смотреть фотоотчет <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Event Card 3 -->
+        <a href="event_gallery_sample.html?id=3"
+            class="min-w-[300px] md:min-w-[350px] snap-center block group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="relative h-56 overflow-hidden">
+                <img src="images/gallery/house№4_photos/main_photo_house4.jpg" alt="Корпоратив IT"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 left-4 bg-resort-green text-white text-xs font-bold px-3 py-1 rounded-full">
+                    10 Сентября 2025
+                </div>
+            </div>
+            <div class="p-5">
+                <h3 class="text-xl font-bold text-resort-dark mb-2 group-hover:text-resort-green transition-colors">
+                    Осенний корпоративный выезд</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">Тимбилдинг и активный отдых для команды "ТехноПро".</p>
+                <div class="mt-4 flex items-center text-resort-green font-semibold text-sm">
+                    Смотреть фотоотчет <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Event Card 4 -->
+        <a href="event_gallery_sample.html?id=4"
+            class="min-w-[300px] md:min-w-[350px] snap-center block group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="relative h-56 overflow-hidden">
+                <img src="images/gallery/house№5_photos/main_photo_house5.jpg.webp" alt="Йога-тур"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute top-4 left-4 bg-resort-green text-white text-xs font-bold px-3 py-1 rounded-full">
+                    05 Октября 2025
+                </div>
+            </div>
+            <div class="p-5">
+                <h3 class="text-xl font-bold text-resort-dark mb-2 group-hover:text-resort-green transition-colors">
+                    Релакс Йога-тур</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">Три дня практик, медитаций и полного единения с природой.
+                </p>
+                <div class="mt-4 flex items-center text-resort-green font-semibold text-sm">
+                    Смотреть фотоотчет <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+
+<style>
+    /* Utility if scrollbar-hide class is missing */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>

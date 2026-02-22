@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(head:*)",
+      "Bash(find:*)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Bash(\"C:/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --screenshot=\"C:/xampp/htdocs/Joomla_5.4.1/services_screenshot_full.png\" --window-size=1280,900 \"http://localhost/Joomla_5.4.1/services_preview.php\")",
+      "Bash(echo:*)",
+      "Bash(for offset in 600 1400 2200 3100 3900 4700)",
+      "Bash(do)",
+      "Bash(\"C:/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --screenshot=\"C:/xampp/htdocs/Joomla_5.4.1/srv_y$offset.png\" --window-size=1280,900 \"http://localhost/Joomla_5.4.1/srv_scroll_preview.php?y=$offset\")",
+      "Bash(done)",
+      "Bash(\"C:/Program Files/Google/Chrome/Application/chrome.exe\":*)",
+      "Bash(\"C:/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --screenshot=\"C:/xampp/htdocs/Joomla_5.4.1/srv_pool_check.png\" --window-size=1280,900 \"http://localhost/Joomla_5.4.1/srv_scroll_preview.php?y=320\")",
+      "Bash(\"C:/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --no-sandbox --screenshot=\"C:/xampp/htdocs/Joomla_5.4.1/srv_pool_check2.png\" --window-size=1280,900 \"http://localhost/Joomla_5.4.1/srv_scroll_preview.php?y=320\")",
+      "Read(//c/Users/vyugo/.claude/**)",
+      "Read(//c/Users/vyugo/AppData/Roaming/Code/User/globalStorage/**)",
+      "Bash(grep:*)",
+      "Bash(mysql:*)",
+      "Bash(c:/xampp/mysql/bin/mysql.exe:*)",
+      "Bash(python3:*)",
+      "Bash(php -r:*)",
+      "Bash(c:/xampp/php/php.exe -r \":*)",
+      "Bash(c:/xampp/php/php.exe:*)",
+      "Bash(ls:*)",
+      "Bash(c:/xampp/htdocs/take_screenshots.js:*)",
+      "Bash(npm init:*)",
+      "Bash(node:*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_q3.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_q4.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_q6.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_modules.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_modules2.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_solidres.php\":*)",
+      "Bash(\"c:/xampp/htdocs/Joomla_5.4.1/tmp_solidres2.php\":*)",
+      "Bash(/c/xampp/htdocs/clear_cache.php:*)",
+      "Read(//c/Users/**)",
+      "Bash(wc:*)"
+    ]
+  }
+}

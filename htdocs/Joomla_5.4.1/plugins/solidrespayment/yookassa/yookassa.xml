@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="solidrespayment" method="upgrade">
+    <name>plg_solidrespayment_yookassa</name>
+    <author>Custom Development</author>
+    <creationDate>January 2026</creationDate>
+    <copyright>Copyright (C) 2026. All Rights Reserved.</copyright>
+    <license>GNU General Public License version 3, or later</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>https://example.com</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_SOLIDRESPAYMENT_YOOKASSA_XML_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="yookassa">yookassa.php</filename>
+        <folder>form</folder>
+        <folder>language</folder>
+    </files>
+</extension>

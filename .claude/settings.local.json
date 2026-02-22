@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(cmd /c \"netstat -ano | findstr :80 | findstr LISTENING\")",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(Write-Output \"Testing PowerShell\")",
+      "Bash(node -c:*)",
+      "Bash(python -c:*)",
+      "Bash(node -e:*)",
+      "Bash(/c/xampp/php/php.exe:*)",
+      "WebFetch(domain:code.claude.com)"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "git.ignoreLimitWarning": true
+    "claude-code.bash.shell": "powershell.exe",
+    "claude-code.bash.args": ["-NoProfile", "-Command"]
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="payments">
+        <fieldset
+                name="yookassa"
+                label="SR_PAYMENT_METHOD_YOOKASSA"
+        >
+            <field
+                    name="yookassa_enabled"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="SR_FIELD_ENABLE_PAYMENT_YOOKASSA_LABEL"
+                    description="SR_FIELD_ENABLE_PAYMENT_YOOKASSA_DESC"
+            >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field
+                    name="yookassa_is_default"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="SR_FIELD_YOOKASSA_IS_DEFAULT_LABEL"
+                    description="SR_FIELD_YOOKASSA_IS_DEFAULT_DESC"
+            >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field
+                    name="yookassa_shop_id"
+                    type="text"
+                    default=""
+                    label="SR_FIELD_YOOKASSA_SHOP_ID_LABEL"
+                    description="SR_FIELD_YOOKASSA_SHOP_ID_DESC"
+                    required="true"
+            />
+
+            <field
+                    name="yookassa_secret_key"
+                    type="password"
+                    default=""
+                    label="SR_FIELD_YOOKASSA_SECRET_KEY_LABEL"
+                    description="SR_FIELD_YOOKASSA_SECRET_KEY_DESC"
+                    required="true"
+            />
+
+            <field
+                    name="yookassa_test_mode"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    default="0"
+                    label="SR_FIELD_YOOKASSA_TEST_MODE_LABEL"
+                    description="SR_FIELD_YOOKASSA_TEST_MODE_DESC"
+            >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+
+            <field
+                    name="yookassa_frontend_message"
+                    type="textarea"
+                    cols="50"
+                    rows="5"
+                    filter="safehtml"
+                    default=""
+                    label="SR_FIELD_YOOKASSA_FRONTEND_MESSAGE_LABEL"
+                    description="SR_FIELD_YOOKASSA_FRONTEND_MESSAGE_DESC"
+            />
+
+            <field
+                    name="yookassa_visibility"
+                    type="list"
+                    default="0"
+                    label="SR_FIELD_YOOKASSA_VISIBILITY_LABEL"
+                    description="SR_FIELD_YOOKASSA_VISIBILITY_DESC"
+            >
+                <option value="0">SR_PAYMENT_VISIBILITY_BOTH</option>
+                <option value="1">SR_PAYMENT_VISIBILITY_FRONTEND_ONLY</option>
+                <option value="2">SR_PAYMENT_VISIBILITY_BACKEND_ONLY</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

@@ -1,0 +1,1524 @@
+/**
+ * Custom Solidres Styles
+ * Modern layouts for Solidres booking system
+ * Based on Bootstrap 5 and modern design principles
+ */
+
+/* =====================================================
+ * GLOBAL STYLES
+ * ===================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================================================
+ * LAYOUT 1: HERO SEARCH OVERLAY
+ * Target: Homepage Module Position
+ * ===================================================== */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 3rem 0;
+}
+
+.hero-section .hero-title {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section .hero-subtitle {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.25rem;
+}
+
+.sr-search-horizontal {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sr-search-horizontal label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.sr-search-horizontal .form-control,
+.sr-search-horizontal .form-select {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+.sr-search-horizontal .btn-primary {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* =====================================================
+ * LAYOUT 2: ASSET / PROPERTY VIEW
+ * Target: com_solidres/reservationasset/default.php
+ * ===================================================== */
+.property-header {
+    background: #fff;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+.property-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.property-facilities {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.property-facilities span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sr-room-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sr-room-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.sr-room-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.sr-room-card .card-body {
+    padding: 1.5rem;
+}
+
+.sr-room-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.sr-price-tag {
+    color: #d32f2f;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sr-price-tag small {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #999;
+}
+
+/* Sidebar Widgets */
+.sidebar-widget {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-widget h5,
+.sidebar-widget h6 {
+    margin-bottom: 1rem;
+}
+
+.sidebar-widget.p-0 {
+    padding: 0 !important;
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-widget ul li {
+    padding: 0.5rem 0;
+}
+
+/* =====================================================
+ * LAYOUT 3: DISTRACTION-FREE CHECKOUT
+ * Target: com_solidres/reservation/checkout.php
+ * ===================================================== */
+.checkout-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.checkout-progress::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.checkout-step {
+    background: #fff;
+    z-index: 1;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #999;
+    position: relative;
+}
+
+.checkout-step.active {
+    border-color: #0d6efd;
+    background: #0d6efd;
+    color: #fff;
+}
+
+.checkout-step.completed {
+    border-color: #198754;
+    background: #198754;
+    color: #fff;
+}
+
+.checkout-summary {
+    background: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.checkout-summary h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.checkout-summary img {
+    border-radius: 4px;
+}
+
+.checkout-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.checkout-summary .summary-total {
+    border-top: 2px solid #dee2e6;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.checkout-summary .total-amount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #198754;
+}
+
+/* Form Styling */
+.checkout-form .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.checkout-form .form-control,
+.checkout-form .form-select {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+}
+
+.checkout-form .form-control:focus,
+.checkout-form .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+}
+
+/* =====================================================
+ * RESPONSIVE UTILITIES
+ * ===================================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 400px;
+    }
+
+    .hero-section .hero-title {
+        font-size: 2rem;
+    }
+
+    .sr-search-horizontal {
+        padding: 1rem;
+    }
+
+    .sr-room-img {
+        height: 150px;
+    }
+
+    .property-facilities {
+        gap: 1rem;
+    }
+
+    .checkout-progress {
+        padding: 0 1rem;
+    }
+
+    .checkout-step {
+        width: 30px;
+        height: 30px;
+        font-size: 0.875rem;
+    }
+}
+
+/* =====================================================
+ * ADDITIONAL UTILITIES
+ * ===================================================== */
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 2rem;
+}
+
+.gap-3 {
+    gap: 1rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.pt-4 {
+    padding-top: 1.5rem !important;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.rounded {
+    border-radius: 0.375rem !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.d-grid {
+    display: grid !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+
+.small {
+    font-size: 0.875rem !important;
+}
+
+.fs-6 {
+    font-size: 1rem !important;
+}
+
+/* =====================================================
+ * CHECKOUT INFO DISPLAY
+ * ===================================================== */
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-item .form-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #666;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item .info-value {
+    font-size: 1rem;
+    color: #333;
+    padding: 0.5rem 0;
+}
+
+.info-item .info-value a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.info-item .info-value a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+ * BIGGER SLIDER OVERRIDE & MARGIN FIXES
+ * ===================================================== */
+.big-slider-override .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+    /* Radius handled below for flush layout */
+    border-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    min-height: 400px;
+}
+
+/* Ensure controls are visible */
+.big-slider-override .carousel-control-prev,
+.big-slider-override .carousel-control-next {
+    width: 10%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+
+.big-slider-override .carousel-control-prev:hover,
+.big-slider-override .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Typography Polish */
+.roomtype_name {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+/* Button Modernization */
+.btn-primary,
+.btn-success {
+    border-radius: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Spacing Fixes */
+.roomtype_desc p {
+    margin-bottom: 0.5rem;
+}
+
+.big-slider-override {
+    padding-right: 0 !important;
+}
+
+/* Layout stacking on mobile */
+@media (max-width: 768px) {
+    .big-slider-override .carousel-item img {
+        height: 250px;
+        min-height: 250px;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+/* =====================================================
+ * ROOM CARD PREMIUM STYLES
+ * ===================================================== */
+.big-slider-override-container .carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 300px;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.big-slider-override-container {
+    padding-right: 0 !important;
+    min-height: 300px;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+.room-description-container {
+    padding: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+.room-card-premium {
+    background: #fff;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible !important;
+    margin-bottom: 2rem !important;
+    position: relative;
+    /* z-index: auto — do NOT set numeric z-index here; it would create a stacking
+       context that traps the absolutely-positioned .datepicker_inline (z-index:1100)
+       inside each card, preventing it from appearing above the next room card. */
+    z-index: auto;
+}
+
+.room-card-premium .room-card-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    column-gap: 0 !important;
+}
+
+.room-card-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.room-title-premium {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+}
+
+.room-desc-premium {
+    color: #6c757d;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+
+    .big-slider-override-container,
+    .room-description-container {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .big-slider-override-container .carousel-item img {
+        height: 250px !important;
+        min-height: auto;
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    .big-slider-override-container {
+        min-height: auto;
+    }
+}
+
+/* =====================================================
+ * FLATPICKR CUSTOMIZATION
+ * Modern date picker styling for resort theme
+ * ===================================================== */
+
+/* Base calendar container */
+.flatpickr-calendar {
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    animation: sr-fadeInScale 0.2s ease-out;
+}
+
+@keyframes sr-fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Month navigation */
+.flatpickr-months {
+    background: linear-gradient(135deg, #5c7c3b 0%, #4a632f 100%);
+    border-radius: 12px 12px 0 0;
+    padding: 8px 0;
+}
+
+.flatpickr-months .flatpickr-month {
+    color: #fff;
+    fill: #fff;
+    height: 36px;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: #fff;
+    fill: #fff;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover {
+    color: #fff;
+    fill: #fff;
+    opacity: 0.8;
+}
+
+.flatpickr-current-month {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.flatpickr-current-month input.cur-year {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Weekday headers */
+span.flatpickr-weekday {
+    color: #5c7c3b;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Day cells */
+.flatpickr-day {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    margin: 1px;
+    line-height: 37px;
+    height: 37px;
+    max-width: 37px;
+}
+
+.flatpickr-day:hover {
+    background: #eef5e9;
+    border-color: #5c7c3b;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background: #5c7c3b;
+    border-color: #5c7c3b;
+    color: #fff;
+    font-weight: 600;
+}
+
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover {
+    background: #4a632f;
+    border-color: #4a632f;
+}
+
+.flatpickr-day.inRange {
+    background: #eef5e9;
+    border-color: transparent;
+    box-shadow: -5px 0 0 #eef5e9, 5px 0 0 #eef5e9;
+}
+
+.flatpickr-day.today {
+    border-color: #5c7c3b;
+    color: #5c7c3b;
+    font-weight: 700;
+}
+
+.flatpickr-day.today:hover {
+    background: #5c7c3b;
+    color: #fff;
+}
+
+.flatpickr-day.bookable {
+    border-bottom: 2px solid #5c7c3b;
+}
+
+.flatpickr-day.flatpickr-disabled {
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+/* Enhanced input styling for Flatpickr-bound inputs */
+.sr-search-form-enhanced .checkin_module,
+.sr-search-form-enhanced .checkout_module {
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s ease;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem;
+    font-weight: 500;
+}
+
+.sr-search-form-enhanced .checkin_module:hover,
+.sr-search-form-enhanced .checkout_module:hover {
+    border-color: #5c7c3b;
+    box-shadow: 0 0 0 3px rgba(92, 124, 59, 0.1);
+}
+
+.sr-search-form-enhanced .checkin_module.active,
+.sr-search-form-enhanced .checkout_module.active,
+.sr-search-form-enhanced .checkin_module:focus,
+.sr-search-form-enhanced .checkout_module:focus {
+    border-color: #5c7c3b;
+    box-shadow: 0 0 0 4px rgba(92, 124, 59, 0.15);
+    outline: none;
+}
+
+/* =====================================================
+ * DATE PRESETS (Quick Select Buttons)
+ * ===================================================== */
+.sr-date-presets {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.sr-date-preset-btn {
+    padding: 0.4rem 0.9rem;
+    border: 1.5px solid #dee2e6;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #495057;
+    white-space: nowrap;
+}
+
+.sr-date-preset-btn i {
+    margin-right: 4px;
+    font-size: 0.75rem;
+}
+
+.sr-date-preset-btn:hover {
+    background: #5c7c3b;
+    color: #fff;
+    border-color: #5c7c3b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(92, 124, 59, 0.25);
+}
+
+.sr-date-preset-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(92, 124, 59, 0.2);
+}
+
+.sr-date-preset-btn.active {
+    background: #5c7c3b;
+    color: #fff;
+    border-color: #5c7c3b;
+}
+
+/* =====================================================
+ * SKELETON LOADERS
+ * ===================================================== */
+.sr-skeleton-container {
+    padding: 1rem 0;
+}
+
+.sr-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: sr-skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 6px;
+}
+
+@keyframes sr-skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.sr-skeleton-input {
+    height: 42px;
+    width: 100%;
+}
+
+.sr-skeleton-label {
+    height: 14px;
+    width: 60%;
+    margin-bottom: 0.5rem;
+}
+
+.sr-skeleton-button {
+    height: 42px;
+    width: 100%;
+}
+
+/* =====================================================
+ * LOADING OVERLAY
+ * ===================================================== */
+.sr-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sr-loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.sr-loading-content {
+    text-align: center;
+}
+
+.sr-spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid #5c7c3b;
+    border-radius: 50%;
+    animation: sr-spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes sr-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sr-loading-text {
+    color: #495057;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Button loading state */
+.sr-search-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.sr-search-btn.loading .sr-search-btn-text {
+    display: none;
+}
+
+.sr-search-btn.loading .sr-search-btn-loading {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.sr-btn-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: sr-spin 0.6s linear infinite;
+}
+
+/* =====================================================
+ * MICRO-INTERACTIONS & ANIMATIONS
+ * ===================================================== */
+
+/* Enhanced form container */
+.sr-search-form-enhanced {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.3s ease;
+}
+
+.sr-search-form-enhanced:focus-within {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced form labels */
+.sr-search-form-enhanced label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+/* Input focus animations */
+.sr-search-form-enhanced .form-control,
+.sr-search-form-enhanced .form-select {
+    transition: all 0.2s ease;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.sr-search-form-enhanced .form-control:focus,
+.sr-search-form-enhanced .form-select:focus {
+    border-color: #5c7c3b;
+    box-shadow: 0 0 0 4px rgba(92, 124, 59, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Button ripple effect */
+.sr-search-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.sr-search-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.sr-search-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Room card entrance animations */
+.room-card-premium,
+.sr-room-card {
+    animation: sr-fadeInUp 0.5s ease-out both;
+}
+
+@keyframes sr-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for multiple room cards */
+.room-card-premium:nth-child(1),
+.sr-room-card:nth-child(1) { animation-delay: 0.1s; }
+.room-card-premium:nth-child(2),
+.sr-room-card:nth-child(2) { animation-delay: 0.2s; }
+.room-card-premium:nth-child(3),
+.sr-room-card:nth-child(3) { animation-delay: 0.3s; }
+.room-card-premium:nth-child(4),
+.sr-room-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Availability search info animation */
+.availability-search-info {
+    animation: sr-fadeInUp 0.4s ease-out;
+}
+
+/* =====================================================
+ * MOBILE-FIRST ENHANCEMENTS
+ * ===================================================== */
+
+/* Sticky search bar on mobile */
+@media (max-width: 991px) {
+    .sr-search-form-enhanced {
+        position: sticky;
+        top: 0;
+        z-index: 1040;
+        border-radius: 0 0 12px 12px;
+        margin: 0 -12px 1rem;
+        padding: 1rem;
+    }
+}
+
+/* Touch-optimized targets */
+@media (max-width: 768px) {
+    .sr-search-form-enhanced .btn,
+    .sr-search-form-enhanced .form-control,
+    .sr-search-form-enhanced .form-select {
+        min-height: 44px;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    .sr-search-form-enhanced .checkin_module,
+    .sr-search-form-enhanced .checkout_module {
+        min-height: 48px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .sr-date-presets {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .sr-date-presets::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sr-date-preset-btn {
+        flex-shrink: 0;
+    }
+
+    /* Full-width Flatpickr on mobile */
+    .flatpickr-calendar {
+        width: calc(100vw - 24px) !important;
+        left: 12px !important;
+        right: 12px !important;
+    }
+
+    /* Room quantity rows on mobile */
+    .room_num_row {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 991px) {
+    .flatpickr-calendar {
+        width: auto !important;
+    }
+}
+
+/* =====================================================
+ * ACCESSIBILITY ENHANCEMENTS
+ * ===================================================== */
+
+/* Visible focus indicators */
+.sr-search-form-enhanced *:focus-visible {
+    outline: 2px solid #5c7c3b;
+    outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .flatpickr-calendar,
+    .sr-search-btn,
+    .sr-date-preset-btn,
+    .room-card-premium,
+    .sr-room-card,
+    .sr-skeleton {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .sr-search-form-enhanced .form-control,
+    .sr-search-form-enhanced .form-select {
+        border-width: 3px;
+    }
+
+    .flatpickr-day.selected {
+        outline: 2px solid #000;
+    }
+}
+
+/* =====================================================
+ * BOOKING PAGE VISUAL ENHANCEMENT
+ * Target: com_solidres reservationasset view
+ * ===================================================== */
+
+/* Page-level background and header clearance for the booking view */
+body.view-reservationasset .container-component {
+    background: linear-gradient(180deg, #e8efe0 0%, #f7f8f5 180px);
+    min-height: 100vh;
+    padding-top: 5.5rem; /* Clear fixed 80px header */
+    padding-bottom: 3rem;
+}
+
+/* Main Solidres wrapper */
+#solidres.reservation_asset_default {
+    background: transparent;
+}
+
+#solidres .reservation_asset_item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================================
+ * BOOKING PAGE: Hide all header sections above the wizard
+ * The last .mb-3 child is the booking section (wizard + rooms)
+ * All preceding rows are property info we want hidden here
+ * ===================================================== */
+body.view-reservationasset #solidres .reservation_asset_item > .row.mb-3,
+body.view-reservationasset #solidres .reservation_asset_item > .mb-3:not(:last-child) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =====================================================
+ * BOOKING WIZARD STEPS
+ * ===================================================== */
+
+.wizard.wizard-default {
+    background: #fff;
+    border-radius: 12px;
+    overflow: visible; /* Must be visible — hidden would clip the absolutely-positioned datepicker */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9ecef;
+}
+
+.wizard.wizard-default .steps {
+    background: #f7f8f5;
+    border-bottom: 1px solid #e0e5db;
+    overflow: hidden;
+}
+
+.wizard.wizard-default .steps .list-inline-item {
+    background: transparent;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    transition: background 0.2s ease, color 0.2s ease;
+    border-right: 1px solid #e0e5db;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+
+.wizard.wizard-default .steps .list-inline-item:last-child {
+    border-right: none;
+}
+
+.wizard.wizard-default .steps .list-inline-item .badge {
+    background: #d1d5db !important;
+    color: #6b7280 !important;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+/* Active step */
+.wizard.wizard-default .steps .reservation-tab-room.active,
+.wizard.wizard-default .steps .list-inline-item.active {
+    background: #5c7c3b !important;
+    color: #fff !important;
+}
+
+.wizard.wizard-default .steps .reservation-tab-room.active .badge,
+.wizard.wizard-default .steps .list-inline-item.active .badge {
+    background: rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+}
+
+/* Remove the old chevron decoration — use a cleaner look */
+.wizard.wizard-default .steps .list-inline-item .chevron {
+    display: none !important;
+}
+
+/* Step content padding */
+.wizard.wizard-default .step-content {
+    padding: 1.5rem;
+}
+
+/* =====================================================
+ * TARIFF / PRICING BOX
+ * ===================================================== */
+
+#solidres .tariff-box {
+    background: linear-gradient(135deg, #f8faf5 0%, #f0f4eb 100%);
+    border: 1px solid #d4e4bc;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-top: 0.75rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#solidres .tariff-box:hover {
+    box-shadow: 0 4px 16px rgba(92, 124, 59, 0.12);
+    transform: translateY(-1px);
+}
+
+#solidres .tariff-box .tariff-title-desc strong {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 2px;
+}
+
+#solidres .tariff-box .tariff-title-desc p {
+    font-size: 0.82rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+/* Price display */
+#solidres .tariff-box .tariff-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#solidres .tariff-box .starting_from {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9ca3af;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+}
+
+#solidres .tariff-box .min_tariff {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    letter-spacing: -0.5px;
+    font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+#solidres .tariff-box .tariff_suffix {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    font-weight: 400;
+    display: block;
+    margin-top: 1px;
+}
+
+/* Select Tariff button */
+#solidres .tariff-box .trigger_checkinoutform {
+    background: #5c7c3b !important;
+    border-color: #5c7c3b !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.6rem 1rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 8px rgba(92, 124, 59, 0.25);
+    white-space: nowrap;
+}
+
+#solidres .tariff-box .trigger_checkinoutform:hover {
+    background: #4a632f !important;
+    border-color: #4a632f !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(92, 124, 59, 0.35) !important;
+}
+
+#solidres .tariff-box .trigger_checkinoutform:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(92, 124, 59, 0.2) !important;
+}
+
+/* =====================================================
+ * INLINE DATEPICKER — make it expand in-flow
+ * Solidres main.css sets position:absolute which causes the calendar
+ * to float over content below rather than pushing it down.
+ * Overriding to position:relative keeps it in the document flow so
+ * the tariff section expands to fit the full calendar.
+ * ===================================================== */
+.datepicker_inline {
+    position: relative !important;
+    z-index: auto !important;
+    width: 100% !important;
+}
+
+/* =====================================================
+ * CHECKIN/CHECKOUT FORM (slides in on tariff select)
+ * ===================================================== */
+
+.checkinoutform:not([style*="display: none"]) {
+    background: #fff;
+    border: 1px solid #d4e4bc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    animation: sr-fadeInUp 0.3s ease-out;
+}
+
+.checkinoutform .form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #6c757d;
+}
+
+.checkinoutform .form-control,
+.checkinoutform .form-select {
+    border-radius: 6px;
+    border: 1.5px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.checkinoutform .form-control:focus,
+.checkinoutform .form-select:focus {
+    border-color: #5c7c3b;
+    box-shadow: 0 0 0 3px rgba(92, 124, 59, 0.12);
+}
+
+.checkinoutform .btn-primary,
+.checkinoutform .btn-success {
+    background: #5c7c3b !important;
+    border-color: #5c7c3b !important;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.checkinoutform .btn-primary:hover,
+.checkinoutform .btn-success:hover {
+    background: #4a632f !important;
+    border-color: #4a632f !important;
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+ * ROOM CARD ACTION BUTTONS (bottom of card)
+ * ===================================================== */
+
+.room-description-container .mt-auto.border-top {
+    padding-top: 1rem;
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* "More details" button */
+.btn.toggle_more_desc {
+    background: transparent !important;
+    border: 1.5px solid #5c7c3b !important;
+    color: #5c7c3b !important;
+    border-radius: 6px !important;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    transition: all 0.2s ease !important;
+}
+
+.btn.toggle_more_desc:hover {
+    background: #5c7c3b !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+}
+
+/* "View calendar" button */
+.btn.load-calendar {
+    background: transparent !important;
+    border: 1.5px solid #dee2e6 !important;
+    color: #6c757d !important;
+    border-radius: 6px !important;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    transition: all 0.2s ease !important;
+}
+
+.btn.load-calendar:hover {
+    background: #f0f4eb !important;
+    border-color: #5c7c3b !important;
+    color: #5c7c3b !important;
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+ * TARIFF HOLDER container (between cards)
+ * ===================================================== */
+
+#solidres [id^="tariff-holder-"] {
+    padding: 0.75rem 0 1.5rem;
+    border-bottom: 1px dashed #e0e5db;
+    margin-bottom: 0.5rem;
+}
+
+/* =====================================================
+ * SEARCH INFO (date reminder bar above room list)
+ * ===================================================== */
+
+#solidres .availability-search-info {
+    background: #fff;
+    border: 1px solid #d4e4bc;
+    border-left: 4px solid #5c7c3b;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#solidres .availability-search-info strong {
+    color: #5c7c3b;
+}
+
+#solidres .availability-search-info .btn-link,
+#solidres .availability-search-info a {
+    color: #5c7c3b;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(92, 124, 59, 0.4);
+}
+
+/* =====================================================
+ * RESPONSIVE ADJUSTMENTS
+ * ===================================================== */
+
+@media (max-width: 991px) {
+    body.view-reservationasset .container-component {
+        padding-top: 5rem;
+    }
+
+    #solidres .reservation_asset_item {
+        border-radius: 12px;
+        padding: 1.25rem;
+    }
+
+    #solidres .reservation_asset_item h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 767px) {
+    body.view-reservationasset .container-component {
+        padding-top: 4.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    #solidres .reservation_asset_item {
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #solidres .reservation_asset_item h1 {
+        font-size: 1.4rem;
+    }
+
+    #solidres .tariff-box .min_tariff {
+        font-size: 1.25rem;
+    }
+
+    .room-description-container .mt-auto.border-top {
+        flex-direction: column;
+    }
+
+    .wizard.wizard-default .step-content {
+        padding: 1rem 0.75rem;
+    }
+}

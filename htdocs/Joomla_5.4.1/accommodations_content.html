@@ -1,0 +1,585 @@
+<style>
+  /* Scoped styles for the accommodations showcase */
+  .gallery-main { overflow: hidden; flex: 1; min-height: 300px; }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s ease; }
+  .gallery-strip {
+    display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: thin; scrollbar-color: #5c7c3b transparent;
+    padding: 6px; background: #f3f4f6;
+  }
+  .gallery-strip::-webkit-scrollbar { height: 4px; }
+  .gallery-strip::-webkit-scrollbar-thumb { background: #5c7c3b; border-radius: 2px; }
+  .thumb-btn {
+    flex: 0 0 80px; height: 60px; overflow: hidden; border-radius: 4px;
+    scroll-snap-align: start; cursor: pointer; border: 2px solid transparent;
+    transition: border-color 0.2s; padding: 0; background: none;
+  }
+  .thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb-btn.active { border-color: #5c7c3b; }
+  .thumb-btn:hover { border-color: #4a632f; }
+  .acc-anchor-nav {
+    position: sticky; top: 70px; z-index: 40;
+    background: white; border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .acc-anchor-nav a {
+    display: inline-block; padding: 0.4rem 1rem; border-radius: 9999px;
+    font-size: 0.82rem; font-weight: 700; color: #6b7280;
+    white-space: nowrap; transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+  .acc-anchor-nav a:hover { background: #5c7c3b; color: white; }
+  article.house-block { scroll-margin-top: 130px; }
+  .no-photo-panel {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2.5rem; min-height: 300px;
+  }
+  .amenity-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.875rem; color: #4b5563;
+  }
+  .amenity-item .material-symbols-outlined { font-size: 20px; color: #5c7c3b; flex-shrink: 0; }
+  .rec-badge {
+    position: absolute; top: 1rem; right: 1rem; z-index: 10;
+    background: #5c7c3b; color: white; padding: 0.25rem 0.75rem;
+    border-radius: 9999px; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  @media (min-width: 1024px) {
+    .gallery-main { min-height: 0; }
+    article.house-block { min-height: 520px; }
+    article.house-block .gallery-panel { display: flex; flex-direction: column; }
+  }
+</style>
+
+<div class="acc-showcase-page">
+
+  <!-- ====== PAGE HEADER BAND ====== -->
+  <div style="background: linear-gradient(180deg, #e8efe0 0%, #f7f8f5 240px); padding: 4rem 1rem 3rem;">
+    <div class="max-w-7xl mx-auto text-center">
+      <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.75rem;">Размещения</p>
+      <h2 class="font-serif font-bold text-resort-dark" style="font-size: 2.75rem; line-height: 1.1; margin-bottom: 1rem;">Наши Уникальные Размещения</h2>
+      <div style="height: 3px; width: 56px; background: #5c7c3b; border-radius: 2px; margin: 0 auto 1.25rem;"></div>
+      <p style="color: #6c757d; font-size: 1.05rem; max-width: 560px; margin: 0 auto; line-height: 1.7;">Выберите идеальный вариант — от уютного домика у озера до роскошной виллы с сауной и бильярдом. Каждый дом уникален.</p>
+    </div>
+  </div>
+
+  <!-- ====== ANCHOR NAV ====== -->
+  <nav class="acc-anchor-nav">
+    <div class="max-w-7xl mx-auto px-4 py-2.5" style="display: flex; gap: 0.35rem; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+      <a href="#house-1">Дом №1</a>
+      <a href="#house-2">Дом №2</a>
+      <a href="#house-3">Дом №3</a>
+      <a href="#house-4">Дом №4</a>
+      <a href="#house-5">Дом №5</a>
+      <a href="#house-6">Дом №6</a>
+      <a href="#tents">Кемпинг</a>
+    </div>
+  </nav>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 1 — image LEFT, bg-white                         -->
+  <!-- ====================================================== -->
+  <article id="house-1" class="house-block grid grid-cols-1 lg:grid-cols-2 bg-white">
+
+    <!-- Gallery Panel (LEFT) -->
+    <div class="gallery-panel flex flex-col">
+      <div class="gallery-main">
+        <img id="main-img-house-1" class="w-full h-full object-cover"
+             src="images/gallery/house№1_photos/main_photo_house1.jpg" alt="Дом №1">
+      </div>
+      <div id="strip-house-1" class="gallery-strip">
+        <button class="thumb-btn active" onclick="swapImage('house-1','images/gallery/house№1_photos/main_photo_house1.jpg',this)">
+          <img src="images/gallery/house№1_photos/main_photo_house1.jpg" alt="фото 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/34_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/34_1.jpg" alt="фото 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/35_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/35_1.jpg" alt="фото 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/36_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/36_1.jpg" alt="фото 4" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/37_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/37_1.jpg" alt="фото 5" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/38_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/38_1.jpg" alt="фото 6" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/39_1.jpg',this)">
+          <img src="images/gallery/house№1_photos/39_1.jpg" alt="фото 7" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-1','images/gallery/house№1_photos/40_1.jpg.webp',this)">
+          <img src="images/gallery/house№1_photos/40_1.jpg.webp" alt="фото 8" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <!-- Info Panel (RIGHT) -->
+    <div class="p-8 lg:p-12 flex flex-col justify-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Вид на озеро</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №1</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 4 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">10&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Уютный одноэтажный дом с просторной верандой, раскинувшийся у самой кромки озера. Большие окна открывают живописные виды на водную гладь — идеальный фон для неспешного утреннего кофе. Интерьер выполнен в тёплых натуральных тонах: деревянные акценты, мягкий текстиль и всё необходимое для по-настоящему домашнего отдыха. Идеально подходит как для романтического уикенда, так и для семейного отдыха с детьми.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">water</span> Вид на озеро</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 2 спальни</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> Душевая</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">deck</span> Просторная веранда</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span> Мангал</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 2 — image RIGHT, bg-gray                         -->
+  <!-- ====================================================== -->
+  <article id="house-2" class="house-block grid grid-cols-1 lg:grid-cols-2" style="background:#f9f9f9;">
+
+    <!-- Gallery Panel (DOM first = shows on top on mobile; pushed RIGHT on desktop) -->
+    <div class="gallery-panel flex flex-col lg:order-2">
+      <div class="gallery-main">
+        <img id="main-img-house-2" class="w-full h-full object-cover"
+             src="images/gallery/house№6_photos/main_photo_house2.webp" alt="Дом №2">
+      </div>
+      <div id="strip-house-2" class="gallery-strip">
+        <button class="thumb-btn active" onclick="swapImage('house-2','images/gallery/house№6_photos/main_photo_house2.webp',this)">
+          <img src="images/gallery/house№6_photos/main_photo_house2.webp" alt="фото 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/house№6_photos/2.jpeg.webp',this)">
+          <img src="images/gallery/house№6_photos/2.jpeg.webp" alt="фото 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/house№6_photos/3.jpeg.webp',this)">
+          <img src="images/gallery/house№6_photos/3.jpeg.webp" alt="фото 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/house№6_photos/4.jpeg.webp',this)">
+          <img src="images/gallery/house№6_photos/4.jpeg.webp" alt="фото 4" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/house№6_photos/5.jpeg.webp',this)">
+          <img src="images/gallery/house№6_photos/5.jpeg.webp" alt="фото 5" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Первый этаж дома №2/27_1.jpg',this)">
+          <img src="images/gallery/Первый этаж дома №2/27_1.jpg" alt="1й этаж 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Первый этаж дома №2/28_1.jpg',this)">
+          <img src="images/gallery/Первый этаж дома №2/28_1.jpg" alt="1й этаж 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Первый этаж дома №2/30_1.jpg',this)">
+          <img src="images/gallery/Первый этаж дома №2/30_1.jpg" alt="1й этаж 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Второй этаж дома №2/24_1.jpg',this)">
+          <img src="images/gallery/Второй этаж дома №2/24_1.jpg" alt="2й этаж 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Второй этаж дома №2/25_1.jpg',this)">
+          <img src="images/gallery/Второй этаж дома №2/25_1.jpg" alt="2й этаж 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-2','images/gallery/Второй этаж дома №2/26_1.jpg',this)">
+          <img src="images/gallery/Второй этаж дома №2/26_1.jpg" alt="2й этаж 3" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <!-- Info Panel (LEFT on desktop) -->
+    <div class="p-8 lg:p-12 flex flex-col justify-center lg:order-1">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Двухэтажный коттедж</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №2</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 6 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">12&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Величественный двухэтажный коттедж с открытым балконом, с которого открываются панорамные виды на лесные дали. На первом этаже просторная гостиная с камином — место, где семья собирается вечером, наполняя комнату теплом живого огня. Второй этаж с отдельными спальнями обеспечивает уединение для каждого. Дом создан для тех, кто ценит пространство, покой и настоящий семейный уют вдали от городской суеты.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">fireplace</span> Камин</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">balcony</span> Балкон с панорамой</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 3 спальни</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> 2 санузла</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Полная кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">deck</span> Терраса</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 3 — image LEFT, bg-white                         -->
+  <!-- ====================================================== -->
+  <article id="house-3" class="house-block grid grid-cols-1 lg:grid-cols-2 bg-white">
+
+    <div class="gallery-panel flex flex-col">
+      <div class="gallery-main">
+        <img id="main-img-house-3" class="w-full h-full object-cover"
+             src="images/gallery/house№3_photos/main_photo_house3.jpg" alt="Дом №3">
+      </div>
+      <div id="strip-house-3" class="gallery-strip">
+        <button class="thumb-btn active" onclick="swapImage('house-3','images/gallery/house№3_photos/main_photo_house3.jpg',this)">
+          <img src="images/gallery/house№3_photos/main_photo_house3.jpg" alt="фото 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-3','images/gallery/house№3_photos/3.jpg',this)">
+          <img src="images/gallery/house№3_photos/3.jpg" alt="фото 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-3','images/gallery/house№3_photos/4.jpg',this)">
+          <img src="images/gallery/house№3_photos/4.jpg" alt="фото 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-3','images/gallery/house№3_photos/6.jpg',this)">
+          <img src="images/gallery/house№3_photos/6.jpg" alt="фото 4" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-3','images/gallery/house№3_photos/8.jpg',this)">
+          <img src="images/gallery/house№3_photos/8.jpg" alt="фото 5" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-3','images/gallery/house№3_photos/9.jpg',this)">
+          <img src="images/gallery/house№3_photos/9.jpg" alt="фото 6" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="p-8 lg:p-12 flex flex-col justify-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Панорамный современный дом</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №3</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 8 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">15&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Современный загородный дом с панорамным остеклением, наполненный светом с раннего утра до заката. Просторная открытая терраса площадью более 30 м² становится любимым местом встречи всей компании — для завтраков на свежем воздухе и тихих послеполуденных часов. Лаконичный интерьер гармонично сочетается с природными материалами: камень, дерево, натуральный текстиль. Идеальный выбор для большой компании, ищущей комфорт без компромиссов.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">panorama</span> Панорамные окна</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">deck</span> Терраса 30+ м²</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 4 спальни</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> 2 санузла</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Оборудованная кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span> Зона барбекю</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 4 — image RIGHT, bg-gray                         -->
+  <!-- ====================================================== -->
+  <article id="house-4" class="house-block grid grid-cols-1 lg:grid-cols-2" style="background:#f9f9f9;">
+
+    <div class="gallery-panel flex flex-col lg:order-2">
+      <div class="gallery-main">
+        <img id="main-img-house-4" class="w-full h-full object-cover"
+             src="images/gallery/house№4_photos/main_photo_house4.jpg" alt="Дом №4">
+      </div>
+      <div id="strip-house-4" class="gallery-strip">
+        <button class="thumb-btn active" onclick="swapImage('house-4','images/gallery/house№4_photos/main_photo_house4.jpg',this)">
+          <img src="images/gallery/house№4_photos/main_photo_house4.jpg" alt="фото 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/2_4q.jpg.webp',this)">
+          <img src="images/gallery/house№4_photos/2_4q.jpg.webp" alt="фото 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/3_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/3_4q.jpg" alt="фото 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/4_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/4_4q.jpg" alt="фото 4" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/5_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/5_4q.jpg" alt="фото 5" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/6_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/6_4q.jpg" alt="фото 6" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/7_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/7_4q.jpg" alt="фото 7" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-4','images/gallery/house№4_photos/8_4q.jpg',this)">
+          <img src="images/gallery/house№4_photos/8_4q.jpg" alt="фото 8" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="p-8 lg:p-12 flex flex-col justify-center lg:order-1">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Уединённый лесной дом</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №4</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 4 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">9&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Утопающий в зелени лесного массива стильный дом — идеальное убежище для тех, кто мечтает о полном слиянии с природой. Густой лес подходит вплотную к стенам, создавая ощущение полного уединения: лишь шум ветра в кронах и пение птиц. Современная отделка и панорамные окна делают пребывание по-настоящему комфортным. Минимализм и природа — главная философия этого пространства.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">forest</span> Лесное окружение</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">panorama</span> Панорамные окна</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 2 спальни</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> Душевая</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span> Мангал</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 5 — image LEFT, bg-white — PREMIUM               -->
+  <!-- ====================================================== -->
+  <article id="house-5" class="house-block grid grid-cols-1 lg:grid-cols-2 bg-white">
+
+    <div class="gallery-panel flex flex-col" style="position:relative;">
+      <div class="rec-badge">Рекомендуем</div>
+      <div class="gallery-main">
+        <img id="main-img-house-5" class="w-full h-full object-cover"
+             src="images/gallery/house№5_photos/main_photo_house5.jpg.webp" alt="Дом №5">
+      </div>
+      <div id="strip-house-5" class="gallery-strip">
+        <button class="thumb-btn active" onclick="swapImage('house-5','images/gallery/house№5_photos/main_photo_house5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/main_photo_house5.jpg.webp" alt="фото 1" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/2-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/2-5.jpg.webp" alt="фото 2" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/3-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/3-5.jpg.webp" alt="фото 3" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/4-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/4-5.jpg.webp" alt="фото 4" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/5-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/5-5.jpg.webp" alt="фото 5" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/6-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/6-5.jpg.webp" alt="фото 6" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/7-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/7-5.jpg.webp" alt="фото 7" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/8-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/8-5.jpg.webp" alt="фото 8" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/9-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/9-5.jpg.webp" alt="фото 9" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/10-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/10-5.jpg.webp" alt="фото 10" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/11-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/11-5.jpg.webp" alt="фото 11" loading="lazy">
+        </button>
+        <button class="thumb-btn" onclick="swapImage('house-5','images/gallery/house№5_photos/12-5.jpg.webp',this)">
+          <img src="images/gallery/house№5_photos/12-5.jpg.webp" alt="фото 12" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="p-8 lg:p-12 flex flex-col justify-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Премиум-вилла</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №5</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 12 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">20&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Роскошная вилла — флагманское предложение усадьбы — создана для тех, кто привык к лучшему. Просторные залы, вместительные спальни и полный спектр развлечений под одной крышей: бильярдная, собственная сауна, оборудованный кинозал. Ухоженная территория с открытой террасой и зонами отдыха позволяет принять большую компанию с истинным размахом. Уединение, роскошь и природа — всё воплощено в Доме №5.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">sauna</span> Сауна</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">sports_esports</span> Бильярдная</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 5+ спален</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> 3 санузла</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Полная кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">deck</span> Большая терраса</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span> Барбекю-зона</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">movie</span> Кинозал</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- HOUSE 6 — image RIGHT (placeholder), bg-gray           -->
+  <!-- ====================================================== -->
+  <article id="house-6" class="house-block grid grid-cols-1 lg:grid-cols-2" style="background:#f9f9f9;">
+
+    <!-- No-photo placeholder panel (DOM first = mobile top) -->
+    <div class="no-photo-panel lg:order-2" style="background: linear-gradient(135deg, #e8efe0 0%, #c5d9a5 50%, #a8c87a 100%);">
+      <span class="material-symbols-outlined" style="font-size: 80px; color: #5c7c3b; opacity: 0.85;">cabin</span>
+      <p class="font-serif font-bold text-center mt-4" style="color: #3a5a24; font-size: 1.2rem;">Деревянный сруб</p>
+      <p class="text-center mt-2 text-sm" style="color: #4a6a34; opacity: 0.8;">Фотографии скоро появятся</p>
+    </div>
+
+    <div class="p-8 lg:p-12 flex flex-col justify-center lg:order-1">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Деревянный сруб</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Дом №6</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> до 4 человек
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">11&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Классический русский деревянный сруб — воплощение тепла и уюта, которых так не хватает в мире бетона и стекла. Ароматная натуральная древесина, потрескивающий огонь в камине, тяжёлые льняные шторы окутывают гостей особой атмосферой. Здесь время замедляется, а душа находит долгожданный покой. Дом №6 — это не просто жильё, это возвращение к истокам.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">cabin</span> Сруб из дерева</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">fireplace</span> Камин</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">bed</span> 2 спальни</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">shower</span> Санузел</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span> Кухня</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">deck</span> Крыльцо</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wifi</span> Wi-Fi</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_parking</span> Парковка</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- Divider -->
+  <div class="flex items-center gap-4 py-3 px-8 max-w-7xl mx-auto">
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+    <span class="material-symbols-outlined" style="color:#d1d5db; font-size:22px;">spa</span>
+    <div class="flex-1" style="height:1px; background:#e5e7eb;"></div>
+  </div>
+
+  <!-- ====================================================== -->
+  <!-- TENTS — image LEFT (placeholder), bg-white             -->
+  <!-- ====================================================== -->
+  <article id="tents" class="house-block grid grid-cols-1 lg:grid-cols-2 bg-white">
+
+    <!-- Night-sky camping placeholder panel -->
+    <div class="no-photo-panel" style="background: linear-gradient(180deg, #0f1a0f 0%, #1e3d1a 40%, #2d5a27 70%, #4a7c3b 100%); position:relative; overflow:hidden;">
+      <!-- Stars decoration -->
+      <div style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true">
+        <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:white;opacity:0.7;top:15%;left:20%;"></div>
+        <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.5;top:25%;left:60%;"></div>
+        <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:white;opacity:0.8;top:10%;left:80%;"></div>
+        <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.6;top:35%;left:35%;"></div>
+        <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.5;top:8%;left:50%;"></div>
+        <div style="position:absolute;width:3px;height:3px;border-radius:50%;background:white;opacity:0.7;top:20%;left:70%;"></div>
+        <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.4;top:40%;left:15%;"></div>
+        <div style="position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.6;top:30%;left:88%;"></div>
+      </div>
+      <span class="material-symbols-outlined" style="font-size: 80px; color: #a8d878; opacity: 0.9; position:relative; z-index:1;">camping</span>
+      <p class="font-serif font-bold text-center mt-4" style="color: #d4f0b0; font-size: 1.2rem; position:relative; z-index:1;">Отдых под открытым небом</p>
+      <p class="text-center mt-2 text-sm" style="color: #8fc870; opacity: 0.8; position:relative; z-index:1;">Glamping в окружении природы</p>
+    </div>
+
+    <div class="p-8 lg:p-12 flex flex-col justify-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-resort-green mb-2" style="letter-spacing: 0.15em;">Glamping под звёздами</span>
+      <h3 class="text-3xl font-serif font-bold text-resort-dark mb-2">Кемпинговые палатки</h3>
+      <div class="flex items-center gap-2 text-gray-500 text-sm mb-3">
+        <span class="material-symbols-outlined" style="font-size:18px;">group</span> 2 человека / палатка
+      </div>
+      <p class="text-2xl font-bold text-resort-dark mb-4">2&nbsp;000 <span class="text-sm font-normal text-gray-500">руб./сутки</span></p>
+      <div style="height:2px; width:3.5rem; background:#5c7c3b; border-radius:1px; margin-bottom:1.25rem;"></div>
+      <p class="text-gray-600 leading-relaxed mb-6" style="font-size:0.97rem;">Для тех, кто слышит зов природы. Наши кемпинговые палатки установлены в самом живописном уголке усадьбы — в окружении деревьев, вдали от городского шума. Засыпать под настоящим звёздным небом, просыпаться от пения птиц, дышать чистейшим лесным воздухом — это опыт, который невозможно забыть. Всё снаряжение предоставляется: вам нужно лишь прийти и раствориться в природе.</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 mb-8">
+        <div class="amenity-item"><span class="material-symbols-outlined">camping</span> Снаряжение включено</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">star</span> Звёздное небо</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">local_fire_department</span> Кострище</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span> Мангал</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">wc</span> Санузел на территории</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">water_drop</span> Питьевая вода</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">hiking</span> Пешие маршруты</div>
+        <div class="amenity-item"><span class="material-symbols-outlined">nature</span> Дикая природа</div>
+      </div>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="block w-full text-center bg-resort-green hover:bg-resort-green-hover text-white font-bold py-4 rounded-lg transition-colors shadow-md" style="font-size:1rem;">
+        Забронировать
+      </a>
+    </div>
+  </article>
+
+  <!-- ====== BOOKING CTA BAND ====== -->
+  <div class="py-20 px-4 text-center" style="background: linear-gradient(135deg, #4a632f 0%, #5c7c3b 100%);">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="font-serif font-bold text-white mb-4" style="font-size: 1.9rem;">Готовы к незабываемому отдыху?</h3>
+      <p class="mb-8" style="color: #c8e6a0; font-size: 1.05rem;">Свяжитесь с нами для бронирования или уточнения деталей</p>
+      <a href="/Joomla_5.4.1/booking-options"
+         class="inline-block bg-white font-bold text-lg px-10 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+         style="color: #5c7c3b; transform: translateY(0);"
+         onmouseover="this.style.transform='translateY(-2px)'"
+         onmouseout="this.style.transform='translateY(0)'">
+        Забронировать
+      </a>
+    </div>
+  </div>
+
+</div><!-- /acc-showcase-page -->
+
+<script>
+function swapImage(houseId, newSrc, clickedThumb) {
+  var img = document.getElementById('main-img-' + houseId);
+  img.style.opacity = '0';
+  setTimeout(function() {
+    img.src = newSrc;
+    img.style.opacity = '1';
+  }, 200);
+  var strip = document.getElementById('strip-' + houseId);
+  strip.querySelectorAll('.thumb-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  if (clickedThumb) {
+    clickedThumb.classList.add('active');
+  }
+}
+</script>

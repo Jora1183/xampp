@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexTask | Premium Task Management</title>
+    <meta name="description" content="A premium, glassmorphic task management application for enhanced productivity.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <h1>NexTask</h1>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total</span>
+                    <span id="total-tasks" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pending</span>
+                    <span id="pending-tasks" class="stat-value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="task-input-section">
+            <form id="task-form" class="task-form">
+                <input type="text" id="task-input" placeholder="What needs to be done?" required autocomplete="off">
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Add Task</span>
+                    <span class="btn-icon">+</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="task-filters">
+            <div class="filter-group" id="filter-status">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <div class="sort-group">
+                <select id="sort-tasks" class="sort-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="alphabetical">Alphabetical</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="task-list-container">
+            <ul id="task-list" class="task-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">📂</div>
+                <p>No tasks found. Start by adding one!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

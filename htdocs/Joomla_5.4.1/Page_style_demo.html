@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nature Park Resort</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nature-green': '#55793e',
+            'nature-green-dark': '#3e592d',
+            'nature-light-green': '#eef5ea',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/></head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<!-- BEGIN: Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="max-w-7xl w-full mx-auto px-6 py-4">
+<div class="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-0">
+<!-- Logo Area -->
+<div class="flex items-center" data-purpose="logo">
+<a class="text-2xl font-bold text-nature-green uppercase tracking-wide" href="#">Nature Park Resort</a>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex space-x-8" data-purpose="main-navigation">
+<a class="text-gray-600 hover:text-nature-green font-medium transition-colors" href="#">Resort Map</a>
+<a class="text-gray-600 hover:text-nature-green font-medium transition-colors" href="#">Accommodations</a>
+<a class="text-gray-600 hover:text-nature-green font-medium transition-colors" href="#">Dining &amp; Spa</a>
+</nav>
+<!-- Right Side Actions -->
+<div class="flex items-center space-x-4" data-purpose="header-actions">
+<!-- Search Bar -->
+<div class="relative hidden sm:block">
+<input class="pl-4 pr-10 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:border-nature-green focus:ring-1 focus:ring-nature-green w-48 lg:w-64 transition-all" placeholder="Search experiences..." type="text"/>
+<svg class="w-4 h-4 text-gray-400 absolute right-3 top-3" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<a class="text-gray-600 hover:text-nature-green font-medium text-sm hidden sm:block" href="#">My Booking</a>
+<button class="bg-nature-green hover:bg-nature-green-dark text-white px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-md">
+            Check In
+          </button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Header -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Resort landscape with lush greenery" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMwHAtcBOvxPSZblma1nBOOSuEBYaG-1479NRD-QqIAkpEPD3BRm0sI4XT4Hxtb_JLxjX-Al5unpAHCEfjRd2AGP_D_vF_7uqrY3doE-jv72Nu-REz403X7y9AoRtwWQMDVVXgq7XaTvkhVKkPkit2zasBEtFl1aeVyeTTg2zBLmSsjXeUYpCjmqWYNyZaGHbMbvCX_yoqI0FiehgTpLJeR9kBG_xSlQH3Pl9lw2gz3Foqr-hUokEQmCO7tGIDvtOX_vem2-mwMFk"/>
+<!-- Overlay for better text readability -->
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg text-6xl">Experience Nature in Luxury</h1>
+<p class="text-lg md:text-xl mb-8 font-light drop-shadow-md">Escape to our exclusive park-hotel and discover your perfect retreat.</p>
+<button class="bg-nature-green hover:bg-nature-green-dark text-white px-8 py-3 rounded-full font-bold text-lg transition-transform transform hover:scale-105 shadow-lg">
+          Explore Accommodations
+        </button>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AccommodationsSection -->
+<section class="py-20 bg-gray-50 mb-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Unique Accommodations</h2>
+<div class="w-24 h-1 bg-nature-green mx-auto rounded-full"></div>
+</div>
+<!-- Grid of Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1: Lakeside Villa -->
+<article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative">
+<img alt="Lakeside Villa exterior" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ9XrpVXaE1D93PhTfeQ3kDIVrc0tr2_uc-iwGwYMx2wNYRd_YiuUNQ4KWQW_fbRA6v8fZrR18i6PyZh2Dd0LSvlTbjyp7wIBdD5Z9oFx6aBE_auJpbo85JUZTSBUYLPc7NnYETl_IPFvdsb5VxvqUwKTvaNEHCnWG3M8Vn9LLVTZixL-7PGcBB2z1HnqxXD-GA5prAld5xZh6ylKJG-O1dFYk3PRhRtvmewuuWfcCudF16GjbQzfoOSSdb396NYm9yXncm0SXCfo"/>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Lakeside Villa</h3>
+<p class="text-gray-600 mb-6 flex-1">Enjoy breathtaking views of the serene lake from your private terrace. Perfect for couples seeking a romantic getaway.</p>
+<div class="mt-auto pt-4 border-t border-gray-100 flex flex-col">
+<span class="text-nature-green font-bold text-lg">From $350/night</span>
+<button class="inline-block w-full text-center bg-nature-green text-white py-3 rounded hover:bg-nature-green-dark transition mt-4">View Details</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Forest Cabin -->
+<article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative">
+<img alt="Forest Cabin exterior" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWAHeK9yKnfmP89MVVoBzPtXMaVbZVHdEsU3Kd_4D_AltjzhwYPJ0kUwr0hl_L-tcRAFabESn3rTCQu17mnsDPfon1KjfHLAMFUf2HbNe_rDwdo2A4hjoZ45Kqf6yPh7XIuMHy8rSB_RChR9ed5M2x1um3kKL-GGwON3PtqhPihjuUmbwBpkx_TUc9g2vTwoQvFNEO_4T7KEMw3vMTViwfaLGzz1XZy-hXOxpAehad88lRxwwNvpKxp9_KC7toOeVFn-Zj7iAdcco"/>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Forest Cabin</h3>
+<p class="text-gray-600 mb-6 flex-1">Nestled deep within the ancient woods, these cabins offer seclusion and a direct connection to the surrounding wildlife.</p>
+<div class="mt-auto pt-4 border-t border-gray-100 flex flex-col">
+<span class="text-nature-green font-bold text-lg">From $350/night</span>
+<button class="inline-block w-full text-center bg-nature-green text-white py-3 rounded hover:bg-nature-green-dark transition mt-4">View Details</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Executive Bungalow -->
+<article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative">
+<img alt="Executive Bungalow exterior" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqFkskqABd7WDAa6Rrngx7ZzjQxZnAgMjKsgtP4K1hoMO4C7ymxFsbjZybNx8v_XrJGPj_ieBN6i7ObQGxzXNyxothD4c9MPYp5-W-FW4HMJwJ8tM8h40FMu2zYzDxkZxJiynIkGJ0xeFkN3gQdBNloUIwzHJvihuHngVWN3G1EK0bEwmao7iRYTvgCQ8yXcCOiIiIDcK3-0fj2iJ5YSNtvkG0AH0TP9eHrm8BBbfUOogNKygHI0qkqfkYLKyezPqSa38i_5xzgQQ"/>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Executive Bungalow</h3>
+<p class="text-gray-600 mb-6 flex-1">Spacious and elegantly designed for families or groups, featuring modern amenities and large gathering spaces.</p>
+<div class="mt-auto pt-4 border-t border-gray-100 flex flex-col">
+<span class="text-nature-green font-bold text-lg">From $350/night</span>
+<button class="inline-block w-full text-center bg-nature-green text-white py-3 rounded hover:bg-nature-green-dark transition mt-4">View Details</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- END: AccommodationsSection -->
+<!-- BEGIN: ExperiencesSection -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Park-Wide Experiences</h2>
+<p class="text-gray-500 max-w-2xl mx-auto">Beyond your room, discover a world of relaxation, adventure, and culinary delight.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-center">
+<!-- Experience 1 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-solid fa-spa text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Spa &amp; Wellness</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">Rejuvenate your body and mind with our organic treatments inspired by forest elements.</p>
+</div>
+<!-- Experience 2 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-solid fa-utensils text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Fine Dining</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">Savor farm-to-table cuisine prepared by world-class chefs using local ingredients.</p>
+</div>
+<!-- Experience 3 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-regular fa-calendar text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Private Events</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">Host unforgettable weddings and corporate retreats in our stunning outdoor venues.</p>
+</div>
+<!-- Experience 4 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-solid fa-person-hiking text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Nature Trails</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">Explore miles of curated hiking and biking paths winding through the pristine reserve.</p>
+</div>
+<!-- Experience 5 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-regular fa-face-smile text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Kids Club</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">Educational and fun nature programs designed specifically for our younger explorers.</p>
+</div>
+<!-- Experience 6 -->
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 bg-nature-light-green rounded-full flex items-center justify-center mb-6 group-hover:bg-nature-green transition-colors duration-300">
+<i class="fa-solid fa-bell-concierge text-nature-green text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-3">Concierge Service</h3>
+<p class="text-gray-600 text-sm leading-relaxed max-w-xs">24/7 dedicated service to ensure every aspect of your stay is perfect.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ExperiencesSection -->
+<!-- BEGIN: CTASection -->
+<section class="relative h-96 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Relaxing resort atmosphere" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUMmr7vL3r7OGhqwKIogIRWci_cnDmLnXc36p9JG6TJpPYyniobSanGLrBJ2WT6e-DFZJBFBR58d1vRHtwpyI2GzhAOBe_om8zlCRA6grNxeEnTary4VVIj6k2O9FxKmhyfaXCZGmgncW4I3ODc4BGwHHhmqK-X_oq-snQW9hOjM2_F3b136IKcCnu-NmEcUYR8Dohi-Gmjj6_AJCtsPmoDlLgAtK2N6YMPVcOqVvplIpGZzCZSJsZdOG50x_mUZ-TBZI1_szfI3s"/>
+<div class="absolute inset-0 bg-black/50"></div>
+</div>
+<div class="relative z-10 text-center text-white px-4">
+<h2 class="text-3xl md:text-5xl font-bold mb-8">Ready for Your Escape?</h2>
+<button class="bg-nature-green hover:bg-nature-green-dark text-white px-10 py-4 rounded-full font-bold text-xl transition-transform transform hover:scale-105 shadow-xl">
+          Book Your Stay Now
+        </button>
+</div>
+</section>
+<!-- END: CTASection -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-gray-100 pt-16 pb-8 border-t border-gray-200">
+<div class="container mx-auto px-6">
+<!-- Footer Links Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<!-- Column 1 -->
+<div data-purpose="footer-column">
+<h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">Resort Help</h4>
+<ul class="space-y-3">
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">FAQs</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Resort Map</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Weather Policy</a></li>
+</ul>
+</div>
+<!-- Column 2 -->
+<div data-purpose="footer-column">
+<h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">Experiences</h4>
+<ul class="space-y-3">
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Dining Reservations</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Spa Menu</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Activity Calendar</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Kids Programs</a></li>
+</ul>
+</div>
+<!-- Column 3 -->
+<div data-purpose="footer-column">
+<h4 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wider">About Nature Park</h4>
+<ul class="space-y-3">
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Our Story</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Sustainability</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Careers</a></li>
+<li><a class="text-gray-600 hover:text-nature-green transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+<p class="mb-4 md:mb-0">© 2023 Nature Park Resort. All rights reserved.</p>
+<div class="flex space-x-6">
+<a class="hover:text-nature-green transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-nature-green transition-colors" href="#">Booking Terms</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>

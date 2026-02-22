@@ -1,0 +1,1 @@
+ALTER TABLE `#__sr_tariffs` ADD COLUMN `cm_custom` VARCHAR(45) NULL;

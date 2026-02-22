@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+    <name>Tilda Gallery Module</name>
+    <author>Assistant</author>
+    <creationDate>January 2026</creationDate>
+    <copyright>Copyright (C) 2026. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>admin@example.com</authorEmail>
+    <authorUrl>www.example.com</authorUrl>
+    <version>1.0.0</version>
+    <description>Custom Gallery Module with Horizontal Scroll</description>
+    <files>
+        <filename module="mod_tilda_gallery">mod_tilda_gallery.php</filename>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+    </config>
+</extension>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidres Layout Templates</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* * GLOBAL STYLES 
+         */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .section-label {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* * LAYOUT 1: HERO SEARCH OVERLAY 
+         * Target: Homepage Module Position
+         */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sr-search-horizontal {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .sr-search-horizontal label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* * LAYOUT 2: ASSET / PROPERTY VIEW
+         * Target: com_solidres/reservationasset/default.php
+         */
+        .property-header {
+            background: #fff;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+        }
+
+        .sr-room-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .sr-room-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .sr-room-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .sr-price-tag {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        /* * LAYOUT 3: DISTRACTION-FREE CHECKOUT
+         * Target: com_solidres/reservation/checkout.php
+         */
+        .checkout-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .checkout-progress::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+
+        .step {
+            background: #fff;
+            z-index: 1;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #999;
+        }
+
+        .step.active {
+            border-color: #0d6efd;
+            background: #0d6efd;
+            color: #fff;
+        }
+
+        .checkout-summary {
+            background: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ==============================================
+     LAYOUT 1: HOMEPAGE HERO SEARCH
+     Use this structure in your "Hero" module position
+============================================== -->
+<div class="section-label">Layout 1: Homepage Hero Search</div>
+
+<section class="hero-section">
+    <div class="container">
+        <div class="text-center text-white mb-4">
+            <h1 class="display-4 fw-bold">Find Your Perfect Stay</h1>
+            <p class="lead">Luxury villas and apartments for your next getaway</p>
+        </div>
+
+        <!-- This form represents the 'mod_sr_checkavailability' module -->
+        <div class="sr-search-horizontal">
+            <form>
+                <div class="row g-3 align-items-end">
+                    <!-- Check In -->
+                    <div class="col-md-3">
+                        <label><i class="far fa-calendar-alt me-1"></i> Check In</label>
+                        <input type="date" class="form-control form-control-lg">
+                    </div>
+                    
+                    <!-- Check Out -->
+                    <div class="col-md-3">
+                        <label><i class="far fa-calendar-alt me-1"></i> Check Out</label>
+                        <input type="date" class="form-control form-control-lg">
+                    </div>
+
+                    <!-- Guests -->
+                    <div class="col-md-3">
+                        <label><i class="fas fa-user-friends me-1"></i> Guests</label>
+                        <select class="form-select form-select-lg">
+                            <option>2 Adults, 0 Children</option>
+                            <option>2 Adults, 1 Child</option>
+                            <option>4 Adults</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary btn-lg w-100">
+                            Check Availability
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============================================
+     LAYOUT 2: SINGLE ASSET (PROPERTY) VIEW
+     Use this structure for 'com_solidres/reservationasset/default.php'
+============================================== -->
+<div class="section-label">Layout 2: Property Detail View</div>
+
+<div class="container my-5">
+    <!-- Breadcrumb (Joomla Standard) -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Villas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ocean View Villa</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- LEFT COLUMN: Main Content (75%) -->
+        <div class="col-lg-8">
+            
+            <!-- Gallery Placeholder -->
+            <div class="bg-dark text-white d-flex align-items-center justify-content-center rounded mb-4" style="height: 400px;">
+                <span><i class="fas fa-camera fa-2x me-2"></i> Main Image Slider (Solidres Media)</span>
+            </div>
+
+            <h1 class="mb-3">Ocean View Villa</h1>
+            
+            <!-- Facilities Icons -->
+            <div class="d-flex gap-3 mb-4 text-secondary">
+                <span><i class="fas fa-wifi"></i> Free Wifi</span>
+                <span><i class="fas fa-swimming-pool"></i> Pool</span>
+                <span><i class="fas fa-parking"></i> Parking</span>
+                <span><i class="fas fa-snowflake"></i> A/C</span>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-5">
+                <h4>About this property</h4>
+                <p>Enjoy a luxurious stay at our Ocean View Villa. Located just steps from the beach, this property offers stunning sunset views, a private infinity pool, and world-class amenities.</p>
+            </div>
+
+            <!-- ROOM LIST (The Booking Engine Part) -->
+            <h3 class="mb-4">Available Rooms</h3>
+            
+            <!-- Room Item 1 -->
+            <div class="sr-room-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=500&q=60" class="sr-room-img" alt="Room">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title">Deluxe Ocean Suite</h5>
+                                <p class="card-text small text-muted"><i class="fas fa-user"></i> Max 2 Adults • <i class="fas fa-ruler-combined"></i> 45m²</p>
+                                <p class="card-text small">Includes breakfast, sea view balcony, and king-size bed.</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-3">
+                                <div>
+                                    <span class="text-decoration-line-through text-muted small">$250</span>
+                                    <div class="sr-price-tag">$199 <small class="fs-6 text-muted fw-normal">/ night</small></div>
+                                </div>
+                                <button class="btn btn-success">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Item 2 -->
+            <div class="sr-room-card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1590490360182-f33db079502d?auto=format&fit=crop&w=500&q=60" class="sr-room-img" alt="Room">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title">Standard Garden Room</h5>
+                                <p class="card-text small text-muted"><i class="fas fa-user"></i> Max 2 Adults • <i class="fas fa-ruler-combined"></i> 30m²</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end mt-3">
+                                <div class="sr-price-tag">$120 <small class="fs-6 text-muted fw-normal">/ night</small></div>
+                                <button class="btn btn-success">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Sticky Sidebar (25%) -->
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top: 2rem;">
+                
+                <!-- Trust / Contact Widget -->
+                <div class="sidebar-widget text-center">
+                    <h5>Need Help?</h5>
+                    <p class="small text-muted">Our concierge team is available 24/7.</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm w-100"><i class="fas fa-phone"></i> +1 234 567 890</a>
+                </div>
+
+                <!-- Map Widget -->
+                <div class="sidebar-widget p-0 overflow-hidden">
+                    <div style="background: #e9ecef; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <span class="text-muted"><i class="fas fa-map-marker-alt"></i> Google Maps Module</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="mb-0 small"><i class="fas fa-map-pin text-danger"></i> 123 Coastal Highway, Miami, FL</p>
+                    </div>
+                </div>
+
+                <!-- Why Book Direct -->
+                <div class="sidebar-widget">
+                    <h6 class="fw-bold mb-3">Why Book Direct?</h6>
+                    <ul class="list-unstyled small mb-0">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Best Price Guarantee</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Free Cancellation</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Early Check-in</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==============================================
+     LAYOUT 3: DISTRACTION-FREE CHECKOUT
+     Use this for 'com_solidres/reservation/checkout.php'
+============================================== -->
+<div class="section-label">Layout 3: Distraction-Free Checkout</div>
+
+<div class="container my-5" style="max-width: 900px;">
+    
+    <!-- Progress Bar -->
+    <div class="checkout-progress px-5">
+        <div class="step active"><i class="fas fa-check"></i></div> <!-- Search -->
+        <div class="step active">1</div> <!-- Guest Info -->
+        <div class="step">2</div> <!-- Payment -->
+        <div class="step">3</div> <!-- Done -->
+    </div>
+
+    <div class="row">
+        <!-- Guest Details Form -->
+        <div class="col-md-7">
+            <h4 class="mb-4">Guest Information</h4>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="John">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Doe">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="john@example.com">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Special Requests</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-top">
+                    <button class="btn btn-primary btn-lg px-5">Continue to Payment</button>
+                    <button class="btn btn-link text-muted">Back</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Order Summary (Sidebar) -->
+        <div class="col-md-5">
+            <div class="checkout-summary">
+                <h5 class="mb-3">Booking Summary</h5>
+                
+                <div class="d-flex mb-3">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=100&q=60" class="rounded me-3" width="80" height="60" style="object-fit: cover;">
+                    <div>
+                        <div class="fw-bold">Deluxe Ocean Suite</div>
+                        <div class="small text-muted">Ocean View Villa</div>
+                    </div>
+                </div>
+
+                <div class="border-bottom pb-2 mb-2">
+                    <div class="d-flex justify-content-between small mb-1">
+                        <span>Check-in:</span>
+                        <span class="fw-bold">Oct 12, 2025</span>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1">
+                        <span>Check-out:</span>
+                        <span class="fw-bold">Oct 15, 2025</span>
+                    </div>
+                    <div class="d-flex justify-content-between small">
+                        <span>Nights:</span>
+                        <span>3</span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span>Room Rate (x3):</span>
+                    <span>$597.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span>Taxes (10%):</span>
+                    <span>$59.70</span>
+                </div>
+                
+                <div class="border-top pt-3 mt-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Total Due:</span>
+                        <span class="fs-4 fw-bold text-success">$656.70</span>
+                    </div>
+                    <div class="text-end small text-muted mt-1">Includes all taxes & fees</div>
+                </div>
+            </div>
+            
+            <div class="mt-3 text-center text-muted small">
+                <i class="fas fa-lock"></i> SSL Secure Transaction
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

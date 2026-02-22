@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+
+        <field name="date_interval" type="text"
+               default="" label="SR_DEPOSIT_DYNAMIC_DATE_INTERVAL"
+               description="SR_DEPOSIT_DYNAMIC_DATE_INTERVAL_DESC" required="true"/>
+
+        <field name="deposit_amount" type="text"
+               default="" label="SR_DEPOSIT_AMOUNT"
+               required="true"/>
+
+    </fieldset>
+</form>

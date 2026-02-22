@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+
+        <field name="housekeeping_staff" type="text"
+               default="" label="SR_HOUSEKEEPING_STAFF_NAME"
+               description="SR_HOUSEKEEPING_STAFF_NAME_DESC" required="true"/>
+
+    </fieldset>
+</form>

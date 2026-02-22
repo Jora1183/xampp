@@ -1,0 +1,18 @@
+# Windows reserved device names
+nul
+
+# MySQL live data (binary files that change constantly)
+mysql/data/
+mysql/data_backup_original/
+mysql/backup/
+
+# Node modules
+node_modules/
+
+# Claude worktrees
+.claude/worktrees/
+
+# Logs
+*.log
+apache/logs/
+tmp/

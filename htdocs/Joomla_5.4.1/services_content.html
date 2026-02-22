@@ -1,0 +1,697 @@
+<style>
+  /* Scoped styles for the services showcase page */
+  .srv-anchor-nav {
+    position: sticky; top: 70px; z-index: 40;
+    background: white; border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .srv-anchor-nav a {
+    display: inline-block; padding: 0.4rem 1rem; border-radius: 9999px;
+    font-size: 0.82rem; font-weight: 700; color: #6b7280;
+    white-space: nowrap; transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+  .srv-anchor-nav a:hover { background: #5c7c3b; color: white; }
+
+  .srv-section { scroll-margin-top: 130px; }
+
+  .srv-section-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: #e8efe0; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .srv-section-icon .material-symbols-outlined { font-size: 36px; color: #5c7c3b; }
+
+  .srv-price-badge {
+    display: inline-flex; align-items: baseline; gap: 0.2rem;
+    background: #5c7c3b; color: white; padding: 0.5rem 1.25rem;
+    border-radius: 9999px; font-weight: 700; font-size: 1.35rem;
+    box-shadow: 0 2px 8px rgba(92,124,59,0.3);
+  }
+  .srv-price-badge small { font-size: 0.75rem; font-weight: 500; opacity: 0.85; }
+
+  .srv-feature-row {
+    display: flex; align-items: flex-start; gap: 0.65rem;
+    padding: 0.45rem 0; font-size: 0.875rem; color: #4b5563;
+  }
+  .srv-feature-row .material-symbols-outlined { font-size: 18px; color: #5c7c3b; flex-shrink: 0; margin-top: 1px; }
+
+  .srv-pricing-card {
+    background: white; border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden;
+  }
+  .srv-pricing-card-head {
+    background: linear-gradient(135deg, #4a632f 0%, #5c7c3b 100%);
+    padding: 1.25rem 1.5rem; color: white;
+  }
+  .srv-pricing-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.7rem 1.5rem; border-bottom: 1px solid #f3f4f6; font-size: 0.9rem;
+  }
+  .srv-pricing-row:last-child { border-bottom: none; }
+  .srv-pricing-row .price { font-weight: 700; color: #5c7c3b; white-space: nowrap; }
+
+  .srv-tag {
+    display: inline-block; padding: 0.15rem 0.65rem; border-radius: 9999px;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .srv-tag-green { background: #e8efe0; color: #4a632f; }
+  .srv-tag-amber { background: #fef3c7; color: #92400e; }
+
+  .srv-sport-card {
+    background: white; border-radius: 0.75rem; padding: 1.25rem 0.75rem;
+    text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column;
+    align-items: center; gap: 0.35rem;
+  }
+  .srv-sport-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.11); transform: translateY(-2px); }
+  .srv-sport-card .sport-icon { font-size: 34px; color: #5c7c3b; }
+  .srv-sport-card .sport-name { font-weight: 600; font-size: 0.85rem; color: #1f2937; line-height: 1.3; }
+  .srv-sport-card .sport-price { font-size: 0.78rem; color: #5c7c3b; font-weight: 700; margin-top: 0.15rem; }
+
+  .srv-misc-card {
+    background: white; border-radius: 0.75rem; padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07); display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+  .srv-misc-card .misc-icon { font-size: 22px; color: #5c7c3b; flex-shrink: 0; margin-top: 2px; }
+
+  .srv-divider {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.75rem 2rem; max-width: 80rem; margin: 0 auto;
+  }
+  .srv-divider .line { flex: 1; height: 1px; background: #e5e7eb; }
+
+  .srv-meal-card {
+    background: white; border-radius: 1rem; padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); text-align: center;
+    border-top: 4px solid #5c7c3b; flex: 1; min-width: 0;
+  }
+  .srv-day-card {
+    background: linear-gradient(135deg, #1a2f1a 0%, #5c7c3b 100%);
+    border-radius: 1rem; padding: 2rem; color: white; text-align: center;
+    max-width: 640px; margin: 0 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .srv-pool-grid { grid-template-columns: 1fr 360px !important; }
+  }
+</style>
+
+<div class="srv-showcase-page">
+
+  <!-- ====== PAGE HEADER BAND ====== -->
+  <div style="background: linear-gradient(180deg, #e8efe0 0%, #f7f8f5 240px); padding: 4rem 1rem 3rem; margin: 0 -1rem;">
+    <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+      <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.75rem;">Для вашего комфорта</p>
+      <h1 style="font-family: 'Playfair Display', serif; font-weight: 700; color: #1a1a1a; font-size: 2.75rem; line-height: 1.1; margin-bottom: 1rem;">
+        Услуги и развлечения
+      </h1>
+      <div style="height: 3px; width: 56px; background: #5c7c3b; border-radius: 2px; margin: 0 auto 1.25rem;"></div>
+      <p style="color: #6c757d; font-size: 1.05rem; max-width: 580px; margin: 0 auto; line-height: 1.7;">
+        Наслаждайтесь полным спектром услуг — от бассейна с джакузи до спортивных развлечений и уютного кафе прямо на территории усадьбы.
+      </p>
+    </div>
+  </div>
+
+  <!-- ====== ANCHOR NAV ====== -->
+  <nav class="srv-anchor-nav" style="margin: 0 -1rem;">
+    <div style="max-width: 80rem; margin: 0 auto; padding: 0.6rem 1rem; display: flex; gap: 0.35rem; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+      <a href="#sec-pool">Бассейн</a>
+      <a href="#sec-grill">Гриль-домик</a>
+      <a href="#sec-cafe">Летнее кафе</a>
+      <a href="#sec-transfer">Трансфер</a>
+      <a href="#sec-sports">Развлечения</a>
+      <a href="#sec-misc">Прочие услуги</a>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       SECTION 1: БАССЕЙН С ДЖАКУЗИ
+  ================================================================ -->
+  <section id="sec-pool" class="srv-section" style="padding: 4rem 1rem; background: white;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+        <div style="display: flex; align-items: flex-start; gap: 1.25rem;">
+          <div class="srv-section-icon">
+            <span class="material-symbols-outlined">pool</span>
+          </div>
+          <div>
+            <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Оздоровление и отдых</p>
+            <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; margin-bottom: 0.25rem; line-height: 1.2;">Бассейн с джакузи</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pool content: description + features left, pricing card right -->
+      <div class="srv-pool-grid" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem;">
+
+        <!-- Left: description & features -->
+        <div>
+          <p style="color: #4b5563; font-size: 1.0rem; line-height: 1.75; margin-bottom: 1.75rem;">
+            Гостей базы отдыха ждёт роскошный бассейн с джакузи, водопадом и мультимедийным сопровождением, дровяной сауной и большой комнатой отдыха. Минерализованная артезианская вода бассейна оказывает благотворное влияние на сердечно-сосудистую систему.
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1.5rem;">
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">hot_tub</span>
+              <span>Джакузи</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">water</span>
+              <span>Водопад</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">local_fire_department</span>
+              <span>Дровяная сауна</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">video_library</span>
+              <span>Мультимедиа</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">weekend</span>
+              <span>Комната отдыха</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">water_drop</span>
+              <span>Артезианская вода</span>
+            </div>
+            <div class="srv-feature-row">
+              <span class="material-symbols-outlined">favorite</span>
+              <span>Польза для сердца</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: price card -->
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <p style="font-size: 0.78rem; font-weight: 600; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem;">Стоимость аренды</p>
+            <div class="srv-price-badge">4 000 <small>руб./час</small></div>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Полный комплекс</span>
+              <span class="price">4 000 руб./час</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span style="color: #6b7280; font-size: 0.83rem;">Джакузи + водопад</span>
+              <span class="price">✓</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span style="color: #6b7280; font-size: 0.83rem;">Дровяная сауна</span>
+              <span class="price">✓</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span style="color: #6b7280; font-size: 0.83rem;">Комната отдыха</span>
+              <span class="price">✓</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span style="color: #6b7280; font-size: 0.83rem;">Мультимедиа</span>
+              <span class="price">✓</span>
+            </div>
+          </div>
+          <div style="padding: 1rem 1.5rem; background: #f9faf5;">
+            <p style="font-size: 0.8rem; color: #6b7280; line-height: 1.5; margin: 0;">
+              Для бронирования свяжитесь с администрацией. Уточняйте доступность и специальные предложения.
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /pool grid -->
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><span class="material-symbols-outlined" style="color: #d1d5db; font-size: 1.5rem;">outdoor_grill</span><div class="line"></div></div>
+
+  <!-- ================================================================
+       SECTION 2: ГРИЛЬ-ДОМИК
+  ================================================================ -->
+  <section id="sec-grill" class="srv-section" style="padding: 4rem 1rem; background: #f9faf5;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="srv-section-icon">
+          <span class="material-symbols-outlined">outdoor_grill</span>
+        </div>
+        <div>
+          <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Уют и огонь</p>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; line-height: 1.2;">Гриль-домик</h2>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;">
+
+        <!-- Description -->
+        <div>
+          <p style="color: #4b5563; font-size: 1.0rem; line-height: 1.75; margin-bottom: 1.25rem;">
+            Если вы собрались с друзьями на шашлыки, но погода подкачала — не беда! Вас ждёт уютный гриль-домик с печью, в которой можно, как в мангале, пожарить шашлыки или, как в камине, развести огонь, если стало прохладно. За уютным круглым столом приятно собраться компанией близких людей и душевно провести время.
+          </p>
+          <p style="color: #4b5563; font-size: 1.0rem; line-height: 1.75; margin-bottom: 1.5rem;">
+            Любителям активного отдыха мы предлагаем провести пикник, праздник или корпоративное мероприятие на свежем воздухе. Летом дополнительно доступно летнее кафе.
+          </p>
+
+          <!-- Pricing table -->
+          <div class="srv-pricing-card" style="margin-bottom: 1.5rem;">
+            <div class="srv-pricing-card-head">
+              <p style="font-size: 0.78rem; font-weight: 600; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Стоимость аренды <span style="opacity:0.7">(минимум 2 часа)</span></p>
+              <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <div>
+                  <p style="font-size: 0.72rem; opacity: 0.75; margin-bottom: 0.15rem;">Пн — Чт</p>
+                  <div class="srv-price-badge" style="font-size: 1.15rem;">1 000 <small>руб./час</small></div>
+                </div>
+                <div>
+                  <p style="font-size: 0.72rem; opacity: 0.75; margin-bottom: 0.15rem;">Пт — Вс</p>
+                  <div class="srv-price-badge" style="font-size: 1.15rem;">1 400 <small>руб./час</small></div>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 0.5rem 0;">
+              <div class="srv-pricing-row">
+                <span>Дрова</span><span class="price">5 поленьев</span>
+              </div>
+              <div class="srv-pricing-row">
+                <span>Розжиг</span><span class="price">включён</span>
+              </div>
+              <div class="srv-pricing-row">
+                <span>Решётка или шампуры</span><span class="price">включены</span>
+              </div>
+              <div class="srv-pricing-row">
+                <span>Опахало для раздува огня</span><span class="price">включено</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Free items -->
+          <div style="background: #fefce8; border: 1px solid #fde68a; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+            <p style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #92400e; margin-bottom: 0.75rem;">
+              <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 4px;">star</span>Бесплатно
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem;">
+              <div class="srv-feature-row" style="color: #78350f;">
+                <span class="material-symbols-outlined" style="color: #d97706;">water_drop</span>
+                <span>Ключевая вода</span>
+              </div>
+              <div class="srv-feature-row" style="color: #78350f;">
+                <span class="material-symbols-outlined" style="color: #d97706;">child_care</span>
+                <span>Детская комната «Шатёр»</span>
+              </div>
+              <div class="srv-feature-row" style="color: #78350f;">
+                <span class="material-symbols-outlined" style="color: #d97706;">deck</span>
+                <span>Шезлонги и гамаки</span>
+              </div>
+              <div class="srv-feature-row" style="color: #78350f;">
+                <span class="material-symbols-outlined" style="color: #d97706;">toys</span>
+                <span>Качели</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><span class="material-symbols-outlined" style="color: #d1d5db; font-size: 1.5rem;">restaurant</span><div class="line"></div></div>
+
+  <!-- ================================================================
+       SECTION 3: ЛЕТНЕЕ КАФЕ
+  ================================================================ -->
+  <section id="sec-cafe" class="srv-section" style="padding: 4rem 1rem; background: white;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="srv-section-icon">
+          <span class="material-symbols-outlined">restaurant</span>
+        </div>
+        <div>
+          <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Вкусно и сытно</p>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; line-height: 1.2;">Летнее кафе</h2>
+        </div>
+      </div>
+
+      <!-- Meal cards -->
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+
+        <div class="srv-meal-card">
+          <span class="material-symbols-outlined" style="font-size: 32px; color: #5c7c3b; margin-bottom: 0.5rem;">wb_sunny</span>
+          <p style="font-weight: 700; color: #1a1a1a; font-size: 1rem; margin-bottom: 0.25rem;">Завтрак</p>
+          <div class="srv-price-badge" style="font-size: 1.1rem; margin-bottom: 0.75rem;">400 <small>руб./чел.</small></div>
+          <p style="font-size: 0.82rem; color: #6b7280; line-height: 1.5;">2 блюда на выбор + кофе натуральный или чай</p>
+        </div>
+
+        <div class="srv-meal-card">
+          <span class="material-symbols-outlined" style="font-size: 32px; color: #5c7c3b; margin-bottom: 0.5rem;">lunch_dining</span>
+          <p style="font-weight: 700; color: #1a1a1a; font-size: 1rem; margin-bottom: 0.25rem;">Обед</p>
+          <div class="srv-price-badge" style="font-size: 1.1rem; margin-bottom: 0.75rem;">600 <small>руб./чел.</small></div>
+          <p style="font-size: 0.82rem; color: #6b7280; line-height: 1.5;">Комплексный обед</p>
+        </div>
+
+        <div class="srv-meal-card">
+          <span class="material-symbols-outlined" style="font-size: 32px; color: #5c7c3b; margin-bottom: 0.5rem;">dinner_dining</span>
+          <p style="font-weight: 700; color: #1a1a1a; font-size: 1rem; margin-bottom: 0.25rem;">Ужин</p>
+          <div class="srv-price-badge" style="font-size: 1.1rem; margin-bottom: 0.75rem;">500 <small>руб./чел.</small></div>
+          <p style="font-size: 0.82rem; color: #6b7280; line-height: 1.5;">Комплексный ужин</p>
+        </div>
+
+        <div class="srv-meal-card">
+          <span class="material-symbols-outlined" style="font-size: 32px; color: #5c7c3b; margin-bottom: 0.5rem;">hotel</span>
+          <p style="font-weight: 700; color: #1a1a1a; font-size: 1rem; margin-bottom: 0.25rem;">Полный пансион</p>
+          <div class="srv-price-badge" style="font-size: 1.1rem; margin-bottom: 0.75rem;">1 500 <small>руб./чел.</small></div>
+          <p style="font-size: 0.82rem; color: #6b7280; line-height: 1.5;">Завтрак + обед + ужин</p>
+        </div>
+
+      </div>
+
+      <!-- Banquet + group info -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <p style="font-size: 0.78rem; font-weight: 600; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Банкеты и мероприятия</p>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Банкетное меню</span>
+              <span class="price">~2 000 руб./чел.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Аренда банкетного зала + площадка</span>
+              <span class="price">22 000 руб./день</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Ресторанные услуги</span>
+              <span class="price">по договорённости</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #f0f5eb; border-left: 4px solid #5c7c3b; border-radius: 0 0.75rem 0.75rem 0; padding: 1.25rem 1.5rem;">
+          <p style="font-size: 0.82rem; font-weight: 700; color: #4a632f; margin-bottom: 0.4rem;">
+            <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; margin-right: 4px;">groups</span>
+            Для организаторов больших групп (свыше 10 человек)
+          </p>
+          <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin: 0;">
+            Повара нашей столовой составят особый план питания для вашей группы — вегетарианское, постное, фитнес-меню и другие варианты по предварительному запросу. Семинары, тренинги, спортивные сборы — всё предусмотрено.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><span class="material-symbols-outlined" style="color: #d1d5db; font-size: 1.5rem;">directions_car</span><div class="line"></div></div>
+
+  <!-- ================================================================
+       SECTION 4: ТРАНСФЕР И ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
+  ================================================================ -->
+  <section id="sec-transfer" class="srv-section" style="padding: 4rem 1rem; background: #f9faf5;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="srv-section-icon">
+          <span class="material-symbols-outlined">directions_car</span>
+        </div>
+        <div>
+          <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Дополнительно</p>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; line-height: 1.2;">Трансфер и прочие услуги</h2>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+
+        <!-- Transfer -->
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="material-symbols-outlined" style="font-size: 20px; opacity: 0.85;">local_taxi</span>
+              <p style="font-size: 0.85rem; font-weight: 700; margin: 0;">Трансфер</p>
+            </div>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Новоильинск — Дивная Усадьба</span>
+              <span class="price">450 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Нытва — Дивная Усадьба</span>
+              <span class="price">1 000 руб.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self-cooking -->
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="material-symbols-outlined" style="font-size: 20px; opacity: 0.85;">skillet</span>
+              <p style="font-size: 0.85rem; font-weight: 700; margin: 0;">Для самостоятельного приготовления</p>
+            </div>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Растопка очага</span>
+              <span class="price">200 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Уголь для мангала (3 кг)</span>
+              <span class="price">360 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Розжиг</span>
+              <span class="price">120 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Дополнительный мангал</span>
+              <span class="price">300 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Услуга «Повар на час»</span>
+              <span class="price">1 000 руб./час</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Обеденная зона на берегу</span>
+              <span class="price">1 800 руб. / 6 чел.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><span class="material-symbols-outlined" style="color: #d1d5db; font-size: 1.5rem;">sports</span><div class="line"></div></div>
+
+  <!-- ================================================================
+       SECTION 5: СПОРТИВНЫЕ РАЗВЛЕЧЕНИЯ
+  ================================================================ -->
+  <section id="sec-sports" class="srv-section" style="padding: 4rem 1rem; background: white;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="srv-section-icon">
+          <span class="material-symbols-outlined">sports_and_outdoors</span>
+        </div>
+        <div>
+          <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Активный отдых</p>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; line-height: 1.2;">Спортивные развлечения</h2>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem;">
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">directions_boat</span>
+          <p class="sport-name">Лодка с мотором</p>
+          <p class="sport-price">1 500 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">rowing</span>
+          <p class="sport-name">Лодка на вёслах</p>
+          <p class="sport-price">450 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">surfing</span>
+          <p class="sport-name">САП-борд</p>
+          <p class="sport-price">500 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">sports_volleyball</span>
+          <p class="sport-name">Пляжный волейбол</p>
+          <p class="sport-price">100 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">sports_tennis</span>
+          <p class="sport-name">Теннис настольный</p>
+          <p class="sport-price">100 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">pedal_bike</span>
+          <p class="sport-name">Велосипед</p>
+          <p class="sport-price">250 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">sports_handball</span>
+          <p class="sport-name">Тетербол</p>
+          <p class="sport-price">50 руб./час · чел.</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">sports_cricket</span>
+          <p class="sport-name">Бадминтон</p>
+          <p class="sport-price">100 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">hiking</span>
+          <p class="sport-name">Скандинавские палки</p>
+          <p class="sport-price">100 руб.</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">sports_martial_arts</span>
+          <p class="sport-name">Стрельба из лука</p>
+          <p class="sport-price">100 руб./час</p>
+        </div>
+
+        <div class="srv-sport-card">
+          <span class="material-symbols-outlined sport-icon">paragliding</span>
+          <p class="sport-name">Батут</p>
+          <p class="sport-price">100 руб. / 10 мин.</p>
+        </div>
+
+      </div>
+
+      <!-- SUP detail note -->
+      <div style="margin-top: 1.25rem; background: #f0f5eb; border-radius: 0.75rem; padding: 1rem 1.25rem;">
+        <p style="font-size: 0.82rem; color: #4b5563; margin: 0;">
+          <span class="material-symbols-outlined" style="font-size: 15px; vertical-align: middle; color: #5c7c3b; margin-right: 4px;">info</span>
+          <strong>САП-борд:</strong> 500 руб./1 час · 800 руб./2 часа · 1 000 руб./3 часа
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><span class="material-symbols-outlined" style="color: #d1d5db; font-size: 1.5rem;">more_horiz</span><div class="line"></div></div>
+
+  <!-- ================================================================
+       SECTION 6: ПРОЧИЕ УСЛУГИ
+  ================================================================ -->
+  <section id="sec-misc" class="srv-section" style="padding: 4rem 1rem; background: #f9faf5;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="srv-section-icon">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </div>
+        <div>
+          <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #5c7c3b; margin-bottom: 0.4rem;">Удобства</p>
+          <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #1a1a1a; line-height: 1.2;">Прочие услуги</h2>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+
+        <!-- Household services -->
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="material-symbols-outlined" style="font-size: 20px; opacity: 0.85;">local_laundry_service</span>
+              <p style="font-size: 0.85rem; font-weight: 700; margin: 0;">Бытовые услуги</p>
+            </div>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Стирка белья (одна загрузка)</span>
+              <span class="price">250 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Глажка одной вещи</span>
+              <span class="price">100 руб.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board games -->
+        <div class="srv-pricing-card">
+          <div class="srv-pricing-card-head">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span class="material-symbols-outlined" style="font-size: 20px; opacity: 0.85;">casino</span>
+              <p style="font-size: 0.85rem; font-weight: 700; margin: 0;">Настольные игры</p>
+            </div>
+          </div>
+          <div style="padding: 0.5rem 0;">
+            <div class="srv-pricing-row">
+              <span>Шахматы</span>
+              <span class="price">50 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Детские игры</span>
+              <span class="price">50 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Лото</span>
+              <span class="price">50 руб.</span>
+            </div>
+            <div class="srv-pricing-row">
+              <span>Карты</span>
+              <span class="price">50 руб.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="srv-divider"><div class="line"></div><div class="line"></div></div>
+
+  <!-- ================================================================
+       DAY VISITOR NOTE
+  ================================================================ -->
+  <section style="padding: 2.5rem 1rem; background: white;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+      <div class="srv-day-card">
+        <span class="material-symbols-outlined" style="font-size: 40px; opacity: 0.8; margin-bottom: 0.75rem;">badge</span>
+        <h3 style="font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; margin-bottom: 0.75rem;">Дневная карта</h3>
+        <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem;">
+          Посетитель базы отдыха, находящийся на территории без проживания, обязан приобрести дневную карту.
+        </p>
+        <div class="srv-price-badge" style="font-size: 1.4rem; background: white; color: #5c7c3b;">350 <small style="color: #4a632f;">руб.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       CTA BAND
+  ================================================================ -->
+  <div style="background: linear-gradient(135deg, #4a632f 0%, #5c7c3b 100%); padding: 4rem 1rem; text-align: center; margin: 0 -1rem;">
+    <div style="max-width: 36rem; margin: 0 auto;">
+      <h3 style="font-family: 'Playfair Display', serif; font-weight: 700; color: white; font-size: 1.9rem; margin-bottom: 1rem;">Хотите узнать подробнее?</h3>
+      <p style="color: #c8e6a0; font-size: 1.05rem; margin-bottom: 2rem;">Свяжитесь с нами — мы поможем выбрать услуги и рассчитаем стоимость под ваши нужды</p>
+      <a href="/Joomla_5.4.1/ru/contacts"
+         style="display: inline-block; background: white; color: #5c7c3b; font-weight: 700; font-size: 1rem; padding: 0.9rem 2.5rem; border-radius: 0.5rem; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.25)'"
+         onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)'">
+        Связаться с нами
+      </a>
+    </div>
+  </div>
+
+</div><!-- /srv-showcase-page -->

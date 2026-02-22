@@ -1,0 +1,585 @@
+/**
+ * Custom Solidres Styles
+ * Modern layouts for Solidres booking system
+ * Based on Bootstrap 5 and modern design principles
+ */
+
+/* =====================================================
+ * GLOBAL STYLES
+ * ===================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================================================
+ * LAYOUT 1: HERO SEARCH OVERLAY
+ * Target: Homepage Module Position
+ * ===================================================== */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 3rem 0;
+}
+
+.hero-section .hero-title {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section .hero-subtitle {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.25rem;
+}
+
+.sr-search-horizontal {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sr-search-horizontal label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.sr-search-horizontal .form-control,
+.sr-search-horizontal .form-select {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+.sr-search-horizontal .btn-primary {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* =====================================================
+ * LAYOUT 2: ASSET / PROPERTY VIEW
+ * Target: com_solidres/reservationasset/default.php
+ * ===================================================== */
+.property-header {
+    background: #fff;
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+.property-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.property-facilities {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.property-facilities span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sr-room-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sr-room-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.sr-room-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.sr-room-card .card-body {
+    padding: 1.5rem;
+}
+
+.sr-room-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.sr-price-tag {
+    color: #d32f2f;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sr-price-tag small {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #999;
+}
+
+/* Sidebar Widgets */
+.sidebar-widget {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-widget h5,
+.sidebar-widget h6 {
+    margin-bottom: 1rem;
+}
+
+.sidebar-widget.p-0 {
+    padding: 0 !important;
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-widget ul li {
+    padding: 0.5rem 0;
+}
+
+/* =====================================================
+ * LAYOUT 3: DISTRACTION-FREE CHECKOUT
+ * Target: com_solidres/reservation/checkout.php
+ * ===================================================== */
+.checkout-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.checkout-progress::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.checkout-step {
+    background: #fff;
+    z-index: 1;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #999;
+    position: relative;
+}
+
+.checkout-step.active {
+    border-color: #0d6efd;
+    background: #0d6efd;
+    color: #fff;
+}
+
+.checkout-step.completed {
+    border-color: #198754;
+    background: #198754;
+    color: #fff;
+}
+
+.checkout-summary {
+    background: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.checkout-summary h5 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.checkout-summary img {
+    border-radius: 4px;
+}
+
+.checkout-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.checkout-summary .summary-total {
+    border-top: 2px solid #dee2e6;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.checkout-summary .total-amount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #198754;
+}
+
+/* Form Styling */
+.checkout-form .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.checkout-form .form-control,
+.checkout-form .form-select {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+}
+
+.checkout-form .form-control:focus,
+.checkout-form .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+}
+
+/* =====================================================
+ * RESPONSIVE UTILITIES
+ * ===================================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 400px;
+    }
+
+    .hero-section .hero-title {
+        font-size: 2rem;
+    }
+
+    .sr-search-horizontal {
+        padding: 1rem;
+    }
+
+    .sr-room-img {
+        height: 150px;
+    }
+
+    .property-facilities {
+        gap: 1rem;
+    }
+
+    .checkout-progress {
+        padding: 0 1rem;
+    }
+
+    .checkout-step {
+        width: 30px;
+        height: 30px;
+        font-size: 0.875rem;
+    }
+}
+
+/* =====================================================
+ * ADDITIONAL UTILITIES
+ * ===================================================== */
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 2rem;
+}
+
+.gap-3 {
+    gap: 1rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.pt-4 {
+    padding-top: 1.5rem !important;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.rounded {
+    border-radius: 0.375rem !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.d-grid {
+    display: grid !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+
+.small {
+    font-size: 0.875rem !important;
+}
+
+.fs-6 {
+    font-size: 1rem !important;
+}
+
+/* =====================================================
+ * CHECKOUT INFO DISPLAY
+ * ===================================================== */
+.info-item {
+    margin-bottom: 1rem;
+}
+
+.info-item .form-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #666;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item .info-value {
+    font-size: 1rem;
+    color: #333;
+    padding: 0.5rem 0;
+}
+
+.info-item .info-value a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.info-item .info-value a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+ * BIGGER SLIDER OVERRIDE & MARGIN FIXES
+ * ===================================================== */
+.big-slider-override .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+    /* Radius handled below for flush layout */
+    border-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    min-height: 400px;
+}
+
+/* Ensure controls are visible */
+.big-slider-override .carousel-control-prev,
+.big-slider-override .carousel-control-next {
+    width: 10%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+
+.big-slider-override .carousel-control-prev:hover,
+.big-slider-override .carousel-control-next:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Typography Polish */
+.roomtype_name {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+/* Button Modernization */
+.btn-primary,
+.btn-success {
+    border-radius: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Spacing Fixes */
+.roomtype_desc p {
+    margin-bottom: 0.5rem;
+}
+
+.big-slider-override {
+    padding-right: 0 !important;
+}
+
+/* Layout stacking on mobile */
+@media (max-width: 768px) {
+    .big-slider-override .carousel-item img {
+        height: 250px;
+        min-height: 250px;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+/* =====================================================
+ * ROOM CARD PREMIUM STYLES
+ * ===================================================== */
+.big-slider-override-container .carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 300px;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.big-slider-override-container {
+    padding-right: 0 !important;
+    min-height: 300px;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+.room-description-container {
+    padding: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    max-width: 50% !important;
+}
+
+.room-card-premium {
+    background: #fff;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible !important;
+    /* Changed from hidden to avoid clipping datepicker */
+    margin-bottom: 2rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+.room-card-premium .room-card-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    column-gap: 0 !important;
+}
+
+.room-card-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.room-title-premium {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+}
+
+.room-desc-premium {
+    color: #6c757d;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+
+    .big-slider-override-container,
+    .room-description-container {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .big-slider-override-container .carousel-item img {
+        height: 250px !important;
+        min-height: auto;
+        border-radius: 8px 8px 0 0 !important;
+    }
+
+    .big-slider-override-container {
+        min-height: auto;
+    }
+}

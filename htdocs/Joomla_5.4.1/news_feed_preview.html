@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed Preview Debug</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'resort-green': '#2c5e2e',
+                        'resort-dark': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <!-- INJECTED CONTENT START -->
+        <div class="news-feed-container py-8">
+            <div class="flex justify-between items-center mb-6 px-2">
+                <h2 class="text-3xl font-serif font-bold text-resort-dark">События и Жизнь Усадьбы</h2>
+            </div>
+
+            <!-- Scroll Container -->
+            <div class="news-carousel flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide"
+                style="scrollbar-width: none; -ms-overflow-style: none;">
+
+                <!-- Event Card 1 -->
+                <div
+                    class="min-w-[300px] md:min-w-[350px] snap-center block bg-white rounded-xl shadow-md h-96 flex-shrink-0">
+                    <div
+                        class="h-full w-full p-4 flex items-center justify-center text-gray-400 border-2 border-dashed">
+                        Card 1</div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[350px] snap-center block bg-white rounded-xl shadow-md h-96 flex-shrink-0">
+                    <div
+                        class="h-full w-full p-4 flex items-center justify-center text-gray-400 border-2 border-dashed">
+                        Card 2</div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[350px] snap-center block bg-white rounded-xl shadow-md h-96 flex-shrink-0">
+                    <div
+                        class="h-full w-full p-4 flex items-center justify-center text-gray-400 border-2 border-dashed">
+                        Card 3</div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[350px] snap-center block bg-white rounded-xl shadow-md h-96 flex-shrink-0">
+                    <div
+                        class="h-full w-full p-4 flex items-center justify-center text-gray-400 border-2 border-dashed">
+                        Card 4</div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[350px] snap-center block bg-white rounded-xl shadow-md h-96 flex-shrink-0">
+                    <div
+                        class="h-full w-full p-4 flex items-center justify-center text-gray-400 border-2 border-dashed">
+                        Card 5</div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <style>
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+        <!-- INJECTED CONTENT END -->
+    </div>
+</body>
+
+</html>
